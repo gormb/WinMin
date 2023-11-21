@@ -1,5 +1,6 @@
-#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+// release x86
+// debug x64
 
 #define _i __int64
 #ifdef NDEBUG

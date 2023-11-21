@@ -1,0 +1,5 @@
+﻿  WinMin.cpp
+C:\s\WinMin\WinMin.cpp(22,5): error C2664: 'INT_PTR DialogBoxParamW(HINSTANCE,LPCWSTR,HWND,DLGPROC,LPARAM)': cannot convert argument 4 from '__int64 (__stdcall *)(HWND,UINT,WPARAM,LPARAM)' to 'DLGPROC'
+C:\s\WinMin\WinMin.cpp(22,5): message : None of the functions with this name in scope match the target type
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(5070,1): message : see declaration of 'DialogBoxParamW'
+C:\s\WinMin\WinMin.cpp(22,5): message : while trying to match the argument list '(int, wchar_t *, int, overloaded-function, long)'
