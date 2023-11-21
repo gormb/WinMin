@@ -1,2 +1,7 @@
-﻿  DumbStuff.cpp
-c1xx : fatal  error C1083: Cannot open source file: 'DumbStuff.cpp': No such file or directory
+﻿  zDumbStuff.cpp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 2 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+WinMin.obj : warning LNK4254: section '.text' (60000020) merged into '.rdata' (40000040) with different attributes
+  WinMin.vcxproj -> C:\s\WinMin\Release\WinMin.exe

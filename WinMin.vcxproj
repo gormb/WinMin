@@ -144,7 +144,7 @@
     <ClInclude Include="WinMin.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DumbStuff.cpp" />
+    <ClCompile Include="zDumbStuff.cpp" />
     <ClCompile Include="WinMin.cpp" />
   </ItemGroup>
   <ItemGroup>
