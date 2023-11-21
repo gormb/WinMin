@@ -1,9 +1,8 @@
 ﻿  WinMin.cpp
-C:\s\WinMin\WinMin.cpp(5,1): warning C4005: '_i': macro redefinition
-C:\s\WinMin\WinMin.cpp(3,1): message : see previous definition of '_i'
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 2 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  2 of 3 functions (66.7%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 WinMin.obj : warning LNK4254: section '.text' (60000020) merged into '.rdata' (40000040) with different attributes
   WinMin.vcxproj -> C:\s\WinMin\Release\WinMin.exe
