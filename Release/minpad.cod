@@ -84,6 +84,7 @@ PUBLIC	?CDefault@@YAHXZ				; CDefault
 PUBLIC	?CSave@@YAHXZ					; CSave
 PUBLIC	?CLoad@@YAHXZ					; CLoad
 PUBLIC	?CNew@@YAHXZ					; CNew
+PUBLIC	?SetFn@@YAXXZ					; SetFn
 PUBLIC	?WmInit@@YAHPAUHWND__@@@Z			; WmInit
 ; Function compile flags: /Ogspy
 ; File C:\s\gormb\minpad\minpad.cpp
@@ -92,60 +93,620 @@ _TEXT	SEGMENT
 ?WmInit@@YAHPAUHWND__@@@Z PROC				; WmInit, COMDAT
 ; _hDlgl$ = ecx
 
-; 15   :     hDlg = hDlgl;
-; 16   :     hEdit = GetDlgItem(hDlg, IDC_TEXTBOX);
+; 15   :     ofn.lStructSize = sizeof(ofn);
+; 16   :     ofn.hwndOwner = hDlg = hDlgl;
+; 17   :     ofn.lpstrFile = szFn;
+; 18   :     ofn.nMaxFile = MAX_PATH;
+; 19   :     ofn.lpstrFilter = "Text (*.txt)\0*.txt\0All (*.*)\0*.*\0";
+; 20   :     ofn.nFilterIndex = 1;
+; 21   :     hEdit = GetDlgItem(hDlg, IDC_TEXTBOX);
 
   00000	68 e9 03 00 00	 push	 1001			; 000003e9H
   00005	51		 push	 ecx
-  00006	89 0d 00 00 00
+  00006	c7 05 00 00 00
+	00 58 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A, 88 ; 00000058H
+  00010	89 0d 00 00 00
 	00		 mov	 DWORD PTR ?hDlg@@3PAUHWND__@@A, ecx ; hDlg
-  0000c	ff 15 00 00 00
+  00016	89 0d 04 00 00
+	00		 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+4, ecx
+  0001c	c7 05 1c 00 00
+	00 00 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+28, OFFSET ?szFn@@3PADA ; szFn
+  00026	c7 05 20 00 00
+	00 04 01 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+32, 260 ; 00000104H
+  00030	c7 05 0c 00 00
+	00 00 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+12, OFFSET ??_C@_0CC@JBGLHNJD@Text?5?$CI?$CK?4txt?$CJ?$AA?$CK?4txt?$AAAll?5?$CI?$CK?4?$CK?$CJ?$AA?$CK?4@
+  0003a	c7 05 18 00 00
+	00 01 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+24, 1
+  00044	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__GetDlgItem@8
 
-; 17   : #ifdef SHORTCUT_KEYS
-; 18   :     pOrgEdit = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc);
+; 22   : #ifdef SHORTCUT_KEYS
+; 23   :     pOrgEdit = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc); // Subclass edit control to preview keyboard
 
-  00012	68 00 00 00 00	 push	 OFFSET ?EditProc@@YGHPAUHWND__@@IIJ@Z ; EditProc
-  00017	6a fc		 push	 -4			; fffffffcH
-  00019	50		 push	 eax
-  0001a	a3 00 00 00 00	 mov	 DWORD PTR ?hEdit@@3PAUHWND__@@A, eax ; hEdit
-  0001f	ff 15 00 00 00
+  0004a	68 00 00 00 00	 push	 OFFSET ?EditProc@@YGHPAUHWND__@@IIJ@Z ; EditProc
+  0004f	6a fc		 push	 -4			; fffffffcH
+  00051	50		 push	 eax
+  00052	a3 00 00 00 00	 mov	 DWORD PTR ?hEdit@@3PAUHWND__@@A, eax ; hEdit
+  00057	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__SetWindowLongW@12
-  00025	a3 00 00 00 00	 mov	 DWORD PTR ?pOrgEdit@@3P6GJPAUHWND__@@IIJ@ZA, eax ; pOrgEdit
+  0005d	a3 00 00 00 00	 mov	 DWORD PTR ?pOrgEdit@@3P6GJPAUHWND__@@IIJ@ZA, eax ; pOrgEdit
 
-; 19   : #endif
-; 20   :     ofn.lStructSize = sizeof(ofn);
-; 21   :     ofn.hwndOwner = hDlg;
+; 24   : #endif
+; 25   :     return CDefault();
 
-  0002a	a1 00 00 00 00	 mov	 eax, DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
-  0002f	c7 05 00 00 00
-	00 58 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A, 88 ; 00000058H
-  00039	a3 04 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+4, eax
-
-; 22   :     ofn.lpstrFile = szFn;
-
-  0003e	c7 05 1c 00 00
-	00 00 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+28, OFFSET ?szFn@@3PADA ; szFn
-
-; 23   :     ofn.nMaxFile = MAX_PATH;
-
-  00048	c7 05 20 00 00
-	00 04 01 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+32, 260 ; 00000104H
-
-; 24   :     ofn.lpstrFilter = "Text (*.txt)\0*.txt\0All (*.*)\0*.*\0";
-
-  00052	c7 05 0c 00 00
-	00 00 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+12, OFFSET ??_C@_0CC@JBGLHNJD@Text?5?$CI?$CK?4txt?$CJ?$AA?$CK?4txt?$AAAll?5?$CI?$CK?4?$CK?$CJ?$AA?$CK?4@
-
-; 25   :     ofn.nFilterIndex = 1;
-
-  0005c	c7 05 18 00 00
-	00 01 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+24, 1
-
-; 26   :     return CDefault();
-
-  00066	e9 00 00 00 00	 jmp	 ?CDefault@@YAHXZ	; CDefault
+  00062	e9 00 00 00 00	 jmp	 ?CDefault@@YAHXZ	; CDefault
 ?WmInit@@YAHPAUHWND__@@@Z ENDP				; WmInit
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?SetFn@@YAXXZ
+_TEXT	SEGMENT
+?SetFn@@YAXXZ PROC					; SetFn, COMDAT
+
+; 29   :     SetWindowTextA(hDlg, szFn);
+
+  00000	68 00 00 00 00	 push	 OFFSET ?szFn@@3PADA	; szFn
+  00005	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
+  0000b	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SetWindowTextA@8
+
+; 30   : }
+
+  00011	c3		 ret	 0
+?SetFn@@YAXXZ ENDP					; SetFn
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CNew@@YAHXZ
+_TEXT	SEGMENT
+?CNew@@YAHXZ PROC					; CNew, COMDAT
+
+; 29   :     SetWindowTextA(hDlg, szFn);
+
+  00000	68 00 00 00 00	 push	 OFFSET ?szFn@@3PADA	; szFn
+  00005	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
+
+; 31   : __inline int CNew() { *szFn = 0; SetFn(); return SetWindowTextA(hEdit, ""); }
+
+  0000b	c6 05 00 00 00
+	00 00		 mov	 BYTE PTR ?szFn@@3PADA, 0
+
+; 29   :     SetWindowTextA(hDlg, szFn);
+
+  00012	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SetWindowTextA@8
+
+; 31   : __inline int CNew() { *szFn = 0; SetFn(); return SetWindowTextA(hEdit, ""); }
+
+  00018	68 00 00 00 00	 push	 OFFSET ??_C@_00CNPNBAHC@@
+  0001d	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  00023	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SetWindowTextA@8
+  00029	c3		 ret	 0
+?CNew@@YAHXZ ENDP					; CNew
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CLoad@@YAHXZ
+_TEXT	SEGMENT
+_dwFs$1 = -4						; size = 4
+?CLoad@@YAHXZ PROC					; CLoad, COMDAT
+
+; 33   : int CLoad() {
+
+  00000	51		 push	 ecx
+  00001	53		 push	 ebx
+  00002	55		 push	 ebp
+  00003	56		 push	 esi
+
+; 34   :     HANDLE hFile = CreateFileA(szFn, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+
+  00004	33 db		 xor	 ebx, ebx
+  00006	bd 00 00 00 00	 mov	 ebp, OFFSET ?szFn@@3PADA ; szFn
+  0000b	53		 push	 ebx
+  0000c	68 80 00 00 00	 push	 128			; 00000080H
+  00011	6a 03		 push	 3
+  00013	53		 push	 ebx
+  00014	53		 push	 ebx
+  00015	68 00 00 00 80	 push	 -2147483648		; 80000000H
+  0001a	55		 push	 ebp
+  0001b	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__CreateFileA@28
+  00021	8b f0		 mov	 esi, eax
+
+; 35   :     if (hFile == INVALID_HANDLE_VALUE)
+
+  00023	83 fe ff	 cmp	 esi, -1
+  00026	75 04		 jne	 SHORT $LN2@CLoad
+
+; 36   :         return FALSE;
+
+  00028	33 c0		 xor	 eax, eax
+  0002a	eb 61		 jmp	 SHORT $LN1@CLoad
+$LN2@CLoad:
+  0002c	57		 push	 edi
+
+; 37   :     else {
+; 38   :         DWORD dwFs = GetFileSize(hFile, NULL);
+
+  0002d	53		 push	 ebx
+  0002e	56		 push	 esi
+  0002f	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GetFileSize@8
+  00035	89 44 24 10	 mov	 DWORD PTR _dwFs$1[esp+20], eax
+
+; 39   :         LPSTR buf = (LPSTR)GlobalAlloc(GPTR, dwFs + 1);
+
+  00039	40		 inc	 eax
+  0003a	50		 push	 eax
+  0003b	6a 40		 push	 64			; 00000040H
+  0003d	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GlobalAlloc@8
+
+; 40   :         if (ReadFile(hFile, buf, dwFs, &dwFs, 0)) {
+
+  00043	53		 push	 ebx
+  00044	8b f8		 mov	 edi, eax
+  00046	8d 44 24 14	 lea	 eax, DWORD PTR _dwFs$1[esp+24]
+  0004a	50		 push	 eax
+  0004b	ff 74 24 18	 push	 DWORD PTR _dwFs$1[esp+28]
+  0004f	57		 push	 edi
+  00050	56		 push	 esi
+  00051	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__ReadFile@20
+  00057	8b 1d 00 00 00
+	00		 mov	 ebx, DWORD PTR __imp__SetWindowTextA@8
+  0005d	85 c0		 test	 eax, eax
+  0005f	74 11		 je	 SHORT $LN4@CLoad
+
+; 41   :             buf[dwFs] = 0;
+
+  00061	8b 44 24 10	 mov	 eax, DWORD PTR _dwFs$1[esp+20]
+
+; 42   :             SetWindowTextA(hEdit, buf);
+
+  00065	57		 push	 edi
+  00066	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  0006c	c6 04 07 00	 mov	 BYTE PTR [edi+eax], 0
+  00070	ff d3		 call	 ebx
+$LN4@CLoad:
+
+; 43   :         }
+; 44   :         GlobalFree(buf);
+
+  00072	57		 push	 edi
+  00073	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GlobalFree@4
+
+; 45   :         CloseHandle(hFile);
+
+  00079	56		 push	 esi
+  0007a	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__CloseHandle@4
+
+; 29   :     SetWindowTextA(hDlg, szFn);
+
+  00080	55		 push	 ebp
+  00081	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
+  00087	ff d3		 call	 ebx
+
+; 46   :     }
+; 47   :     SetFn();
+; 48   :     return TRUE;
+
+  00089	33 c0		 xor	 eax, eax
+  0008b	40		 inc	 eax
+  0008c	5f		 pop	 edi
+$LN1@CLoad:
+
+; 49   : }
+
+  0008d	5e		 pop	 esi
+  0008e	5d		 pop	 ebp
+  0008f	5b		 pop	 ebx
+  00090	59		 pop	 ecx
+  00091	c3		 ret	 0
+?CLoad@@YAHXZ ENDP					; CLoad
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CSave@@YAHXZ
+_TEXT	SEGMENT
+_dwWritten$1 = -4					; size = 4
+?CSave@@YAHXZ PROC					; CSave, COMDAT
+
+; 51   : int CSave() {
+
+  00000	51		 push	 ecx
+
+; 52   :     if (!*szFn)
+
+  00001	80 3d 00 00 00
+	00 00		 cmp	 BYTE PTR ?szFn@@3PADA, 0
+  00008	75 08		 jne	 SHORT $LN2@CSave
+
+; 68   : }
+
+  0000a	83 c4 04	 add	 esp, 4
+
+; 53   :         return CSaveas();
+
+  0000d	e9 00 00 00 00	 jmp	 ?CSaveas@@YAHXZ		; CSaveas
+$LN2@CSave:
+  00012	55		 push	 ebp
+
+; 54   :     HANDLE hFile = CreateFileA(szFn, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+
+  00013	33 c0		 xor	 eax, eax
+  00015	50		 push	 eax
+  00016	68 80 00 00 00	 push	 128			; 00000080H
+  0001b	6a 02		 push	 2
+  0001d	50		 push	 eax
+  0001e	50		 push	 eax
+  0001f	68 00 00 00 40	 push	 1073741824		; 40000000H
+  00024	68 00 00 00 00	 push	 OFFSET ?szFn@@3PADA	; szFn
+  00029	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__CreateFileA@28
+  0002f	8b e8		 mov	 ebp, eax
+
+; 55   :     if (hFile == INVALID_HANDLE_VALUE)
+
+  00031	83 fd ff	 cmp	 ebp, -1
+  00034	75 04		 jne	 SHORT $LN3@CSave
+
+; 56   :         return FALSE;
+
+  00036	33 c0		 xor	 eax, eax
+  00038	eb 65		 jmp	 SHORT $LN10@CSave
+$LN3@CSave:
+  0003a	53		 push	 ebx
+  0003b	56		 push	 esi
+  0003c	57		 push	 edi
+
+; 57   :     else {
+; 58   :         DWORD dwWritten;
+; 59   :         DWORD dwLen = GetWindowTextLength(hEdit);
+
+  0003d	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  00043	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GetWindowTextLengthW@4
+  00049	8b f8		 mov	 edi, eax
+
+; 60   :         LPSTR buf = (LPSTR)GlobalAlloc(GPTR, dwLen + 1);
+
+  0004b	8d 77 01	 lea	 esi, DWORD PTR [edi+1]
+  0004e	56		 push	 esi
+  0004f	6a 40		 push	 64			; 00000040H
+  00051	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GlobalAlloc@8
+
+; 61   :         GetWindowTextA(hEdit, buf, dwLen + 1);
+
+  00057	56		 push	 esi
+  00058	8b d8		 mov	 ebx, eax
+  0005a	53		 push	 ebx
+  0005b	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  00061	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GetWindowTextA@12
+
+; 62   :         WriteFile(hFile, buf, dwLen * sizeof(WCHAR), &dwWritten, NULL);
+
+  00067	6a 00		 push	 0
+  00069	8d 44 24 14	 lea	 eax, DWORD PTR _dwWritten$1[esp+24]
+  0006d	50		 push	 eax
+  0006e	8d 0c 3f	 lea	 ecx, DWORD PTR [edi+edi]
+  00071	51		 push	 ecx
+  00072	53		 push	 ebx
+  00073	55		 push	 ebp
+  00074	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__WriteFile@20
+
+; 63   :         GlobalFree(buf);
+
+  0007a	53		 push	 ebx
+  0007b	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GlobalFree@4
+
+; 64   :         CloseHandle(hFile);
+
+  00081	55		 push	 ebp
+  00082	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__CloseHandle@4
+
+; 29   :     SetWindowTextA(hDlg, szFn);
+
+  00088	68 00 00 00 00	 push	 OFFSET ?szFn@@3PADA	; szFn
+  0008d	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
+  00093	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SetWindowTextA@8
+
+; 65   :         SetFn();
+; 66   :     }
+; 67   :     return TRUE;
+
+  00099	5f		 pop	 edi
+  0009a	33 c0		 xor	 eax, eax
+  0009c	5e		 pop	 esi
+  0009d	40		 inc	 eax
+  0009e	5b		 pop	 ebx
+$LN10@CSave:
+  0009f	5d		 pop	 ebp
+
+; 68   : }
+
+  000a0	59		 pop	 ecx
+  000a1	c3		 ret	 0
+?CSave@@YAHXZ ENDP					; CSave
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CDefault@@YAHXZ
+_TEXT	SEGMENT
+tv212 = -4						; size = 4
+?CDefault@@YAHXZ PROC					; CDefault, COMDAT
+
+; 70   : int CDefault() {
+
+  00000	51		 push	 ecx
+  00001	53		 push	 ebx
+  00002	55		 push	 ebp
+  00003	56		 push	 esi
+  00004	57		 push	 edi
+
+; 71   :     LPWSTR arg = GetCommandLineW();
+
+  00005	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GetCommandLineW@0
+  0000b	8b d0		 mov	 edx, eax
+
+; 72   :     while (*arg == ' ') arg++; // skip trailing spaces
+
+  0000d	6a 20		 push	 32			; 00000020H
+  0000f	5e		 pop	 esi
+  00010	0f b7 0a	 movzx	 ecx, WORD PTR [edx]
+  00013	8b e9		 mov	 ebp, ecx
+  00015	66 3b ce	 cmp	 cx, si
+  00018	75 0d		 jne	 SHORT $LN3@CDefault
+$LL2@CDefault:
+  0001a	83 c2 02	 add	 edx, 2
+  0001d	0f b7 02	 movzx	 eax, WORD PTR [edx]
+  00020	66 3b c6	 cmp	 ax, si
+  00023	74 f5		 je	 SHORT $LL2@CDefault
+  00025	8b e8		 mov	 ebp, eax
+$LN3@CDefault:
+
+; 73   :     WCHAR wEnd = *arg == '\"' ? *arg++ : ' ';
+; 74   :     char* pFn = szFn;
+
+  00027	6a 22		 push	 34			; 00000022H
+  00029	59		 pop	 ecx
+  0002a	66 3b e9	 cmp	 bp, cx
+  0002d	8b c1		 mov	 eax, ecx
+  0002f	6a 22		 push	 34			; 00000022H
+  00031	0f 45 c6	 cmovne	 eax, esi
+  00034	8d 4a 02	 lea	 ecx, DWORD PTR [edx+2]
+  00037	0f b7 c0	 movzx	 eax, ax
+
+; 75   :     for (int i = 0; i < MAX_PATH && *arg && *arg != wEnd; i++) 
+
+  0003a	33 ff		 xor	 edi, edi
+  0003c	89 44 24 14	 mov	 DWORD PTR tv212[esp+24], eax
+  00040	be 00 00 00 00	 mov	 esi, OFFSET ?szFn@@3PADA ; szFn
+  00045	58		 pop	 eax
+  00046	66 3b e8	 cmp	 bp, ax
+  00049	8b df		 mov	 ebx, edi
+  0004b	0f 45 ca	 cmovne	 ecx, edx
+  0004e	8b 54 24 10	 mov	 edx, DWORD PTR tv212[esp+20]
+$LL6@CDefault:
+  00052	0f b7 01	 movzx	 eax, WORD PTR [ecx]
+  00055	66 85 c0	 test	 ax, ax
+  00058	74 16		 je	 SHORT $LN5@CDefault
+  0005a	66 3b c2	 cmp	 ax, dx
+  0005d	74 11		 je	 SHORT $LN5@CDefault
+
+; 76   :         *pFn++ = (char)*arg++;
+
+  0005f	8a 01		 mov	 al, BYTE PTR [ecx]
+  00061	83 c1 02	 add	 ecx, 2
+  00064	88 06		 mov	 BYTE PTR [esi], al
+  00066	46		 inc	 esi
+  00067	43		 inc	 ebx
+  00068	81 fb 04 01 00
+	00		 cmp	 ebx, 260		; 00000104H
+  0006e	7c e2		 jl	 SHORT $LL6@CDefault
+$LN5@CDefault:
+
+; 77   :     *((DWORD*)(pFn - 3)) = 0x00747874; // end with "txt\0"
+
+  00070	c7 46 fd 74 78
+	74 00		 mov	 DWORD PTR [esi-3], 7633012 ; 00747874H
+
+; 78   :     return CLoad() || CSave();
+
+  00077	e8 00 00 00 00	 call	 ?CLoad@@YAHXZ		; CLoad
+  0007c	85 c0		 test	 eax, eax
+  0007e	75 09		 jne	 SHORT $LN10@CDefault
+  00080	e8 00 00 00 00	 call	 ?CSave@@YAHXZ		; CSave
+  00085	85 c0		 test	 eax, eax
+  00087	74 03		 je	 SHORT $LN11@CDefault
+$LN10@CDefault:
+  00089	33 ff		 xor	 edi, edi
+  0008b	47		 inc	 edi
+$LN11@CDefault:
+  0008c	8b c7		 mov	 eax, edi
+  0008e	5f		 pop	 edi
+  0008f	5e		 pop	 esi
+  00090	5d		 pop	 ebp
+  00091	5b		 pop	 ebx
+
+; 79   : }
+
+  00092	59		 pop	 ecx
+  00093	c3		 ret	 0
+?CDefault@@YAHXZ ENDP					; CDefault
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?COpen@@YAHXZ
+_TEXT	SEGMENT
+?COpen@@YAHXZ PROC					; COpen, COMDAT
+
+; 82   :     ofn.lpstrTitle = "Open";
+; 83   :     ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+; 84   :     if (GetOpenFileNameA(&ofn))
+
+  00000	68 00 00 00 00	 push	 OFFSET ?ofn@@3UtagOFNA@@A ; ofn
+  00005	c7 05 30 00 00
+	00 00 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+48, OFFSET ??_C@_04DNCDCIAE@Open@
+  0000f	c7 05 34 00 00
+	00 00 18 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+52, 6144 ; 00001800H
+  00019	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GetOpenFileNameA@4
+  0001f	85 c0		 test	 eax, eax
+  00021	0f 85 00 00 00
+	00		 jne	 ?CLoad@@YAHXZ		; CLoad
+
+; 85   :         return CLoad();
+; 86   :     return FALSE;
+; 87   : }
+
+  00027	c3		 ret	 0
+?COpen@@YAHXZ ENDP					; COpen
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CSaveas@@YAHXZ
+_TEXT	SEGMENT
+?CSaveas@@YAHXZ PROC					; CSaveas, COMDAT
+
+; 90   :     ofn.lpstrTitle = "Save";
+; 91   :     ofn.Flags = OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
+; 92   :     if (GetSaveFileNameA(&ofn))
+
+  00000	68 00 00 00 00	 push	 OFFSET ?ofn@@3UtagOFNA@@A ; ofn
+  00005	c7 05 30 00 00
+	00 00 00 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+48, OFFSET ??_C@_04INACKGJP@Save@
+  0000f	c7 05 34 00 00
+	00 02 08 00 00	 mov	 DWORD PTR ?ofn@@3UtagOFNA@@A+52, 2050 ; 00000802H
+  00019	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__GetSaveFileNameA@4
+  0001f	85 c0		 test	 eax, eax
+  00021	0f 85 00 00 00
+	00		 jne	 ?CSave@@YAHXZ		; CSave
+
+; 93   :         return CSave();
+; 94   :     return TRUE;
+
+  00027	40		 inc	 eax
+
+; 95   : }
+
+  00028	c3		 ret	 0
+?CSaveas@@YAHXZ ENDP					; CSaveas
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CCut@@YAHXZ
+_TEXT	SEGMENT
+?CCut@@YAHXZ PROC					; CCut, COMDAT
+
+; 97   : __inline int CCut() { SendMessage(hEdit, WM_CUT, 0, 0); return TRUE; }
+
+  00000	6a 00		 push	 0
+  00002	6a 00		 push	 0
+  00004	68 00 03 00 00	 push	 768			; 00000300H
+  00009	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  0000f	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SendMessageW@16
+  00015	33 c0		 xor	 eax, eax
+  00017	40		 inc	 eax
+  00018	c3		 ret	 0
+?CCut@@YAHXZ ENDP					; CCut
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CCopy@@YAHXZ
+_TEXT	SEGMENT
+?CCopy@@YAHXZ PROC					; CCopy, COMDAT
+
+; 98   : __inline int CCopy() { SendMessage(hEdit, WM_COPY, 0, 0); return TRUE; }
+
+  00000	6a 00		 push	 0
+  00002	6a 00		 push	 0
+  00004	68 01 03 00 00	 push	 769			; 00000301H
+  00009	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  0000f	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SendMessageW@16
+  00015	33 c0		 xor	 eax, eax
+  00017	40		 inc	 eax
+  00018	c3		 ret	 0
+?CCopy@@YAHXZ ENDP					; CCopy
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CPaste@@YAHXZ
+_TEXT	SEGMENT
+?CPaste@@YAHXZ PROC					; CPaste, COMDAT
+
+; 99   : __inline int CPaste() { SendMessage(hEdit, WM_PASTE, 0, 0); return TRUE; }
+
+  00000	6a 00		 push	 0
+  00002	6a 00		 push	 0
+  00004	68 02 03 00 00	 push	 770			; 00000302H
+  00009	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  0000f	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SendMessageW@16
+  00015	33 c0		 xor	 eax, eax
+  00017	40		 inc	 eax
+  00018	c3		 ret	 0
+?CPaste@@YAHXZ ENDP					; CPaste
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CSelectAll@@YAHXZ
+_TEXT	SEGMENT
+?CSelectAll@@YAHXZ PROC					; CSelectAll, COMDAT
+
+; 100  : __inline int CSelectAll() { SendMessage(hEdit, EM_SETSEL, 0, -1); return TRUE; }
+
+  00000	6a ff		 push	 -1
+  00002	6a 00		 push	 0
+  00004	68 b1 00 00 00	 push	 177			; 000000b1H
+  00009	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  0000f	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__SendMessageW@16
+  00015	33 c0		 xor	 eax, eax
+  00017	40		 inc	 eax
+  00018	c3		 ret	 0
+?CSelectAll@@YAHXZ ENDP					; CSelectAll
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?CEnd@@YAHXZ
+_TEXT	SEGMENT
+?CEnd@@YAHXZ PROC					; CEnd, COMDAT
+
+; 102  : __inline int CEnd() { return EndDialog(hDlg, 0);  }
+
+  00000	6a 00		 push	 0
+  00002	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
+  00008	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__EndDialog@8
+  0000e	c3		 ret	 0
+?CEnd@@YAHXZ ENDP					; CEnd
 _TEXT	ENDS
 ; Function compile flags: /Ogspy
 ; File C:\s\gormb\minpad\minpad.cpp
@@ -155,15 +716,15 @@ _TEXT	SEGMENT
 ; _c$ = ecx
 ; _lP$dead$ = edx
 
-; 101  :     switch (c) {
+; 105  :     switch (c) {
 
   00000	b8 45 9c 00 00	 mov	 eax, 40005		; 00009c45H
   00005	3b c8		 cmp	 ecx, eax
-  00007	77 56		 ja	 SHORT $LN16@WmCommand
-  00009	74 45		 je	 SHORT $LN9@WmCommand
+  00007	77 42		 ja	 SHORT $LN16@WmCommand
+  00009	74 31		 je	 SHORT $LN9@WmCommand
   0000b	49		 dec	 ecx
   0000c	83 e9 01	 sub	 ecx, 1
-  0000f	74 3f		 je	 SHORT $LN9@WmCommand
+  0000f	74 2b		 je	 SHORT $LN9@WmCommand
   00011	81 e9 3f 9c 00
 	00		 sub	 ecx, 39999		; 00009c3fH
   00017	74 1e		 je	 SHORT $LN5@WmCommand
@@ -172,135 +733,150 @@ _TEXT	SEGMENT
   0001e	83 e9 01	 sub	 ecx, 1
   00021	74 0a		 je	 SHORT $LN7@WmCommand
   00023	83 e9 01	 sub	 ecx, 1
-  00026	75 53		 jne	 SHORT $LN2@WmCommand
+  00026	75 3f		 jne	 SHORT $LN2@WmCommand
 
-; 106  :     case ID_FILE_SAVEAS: return CSaveas();
+; 110  :     case ID_FILE_SAVEAS: return CSaveas();
 
   00028	e9 00 00 00 00	 jmp	 ?CSaveas@@YAHXZ		; CSaveas
 $LN7@WmCommand:
 
-; 105  :     case ID_FILE_SAVE: return CSave();
+; 109  :     case ID_FILE_SAVE: return CSave();
 
   0002d	e9 00 00 00 00	 jmp	 ?CSave@@YAHXZ		; CSave
 $LN6@WmCommand:
 
-; 103  :     case ID_FILE_NEW: return CNew();
-; 104  :     case ID_FILE_OPEN: return COpen();
+; 108  :     case ID_FILE_OPEN: return COpen();
 
   00032	e9 00 00 00 00	 jmp	 ?COpen@@YAHXZ		; COpen
 $LN5@WmCommand:
 
-; 29   : __inline int CNew() { *szFn = 0; return SetWindowTextA(hEdit, ""); }
+; 107  :     case ID_FILE_NEW: return CNew();
 
-  00037	68 00 00 00 00	 push	 OFFSET ??_C@_00CNPNBAHC@@
-  0003c	ff 35 00 00 00
-	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
-  00042	c6 05 00 00 00
-	00 00		 mov	 BYTE PTR ?szFn@@3PADA, 0
-  00049	ff 15 00 00 00
-	00		 call	 DWORD PTR __imp__SetWindowTextA@8
-
-; 115  : }
-
-  0004f	c3		 ret	 0
+  00037	e9 00 00 00 00	 jmp	 ?CNew@@YAHXZ		; CNew
 $LN9@WmCommand:
 
-; 98   : __inline int CEnd() { return EndDialog(hDlg, 0);  }
+; 102  : __inline int CEnd() { return EndDialog(hDlg, 0);  }
 
-  00050	6a 00		 push	 0
-  00052	ff 35 00 00 00
+  0003c	6a 00		 push	 0
+  0003e	ff 35 00 00 00
 	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
-  00058	ff 15 00 00 00
+  00044	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__EndDialog@8
 
-; 115  : }
+; 119  : }
 
-  0005e	c3		 ret	 0
+  0004a	c3		 ret	 0
 $LN16@WmCommand:
 
-; 101  :     switch (c) {
+; 105  :     switch (c) {
 
-  0005f	81 e9 46 9c 00
+  0004b	81 e9 46 9c 00
 	00		 sub	 ecx, 40006		; 00009c46H
-  00065	74 3d		 je	 SHORT $LN12@WmCommand
-  00067	83 e9 01	 sub	 ecx, 1
-  0006a	74 2d		 je	 SHORT $LN13@WmCommand
-  0006c	83 e9 01	 sub	 ecx, 1
-  0006f	74 1d		 je	 SHORT $LN14@WmCommand
-  00071	83 e9 01	 sub	 ecx, 1
-  00074	74 0d		 je	 SHORT $LN11@WmCommand
-  00076	83 e9 01	 sub	 ecx, 1
-  00079	74 03		 je	 SHORT $LN4@WmCommand
+  00051	74 3d		 je	 SHORT $LN12@WmCommand
+  00053	83 e9 01	 sub	 ecx, 1
+  00056	74 2d		 je	 SHORT $LN13@WmCommand
+  00058	83 e9 01	 sub	 ecx, 1
+  0005b	74 1d		 je	 SHORT $LN14@WmCommand
+  0005d	83 e9 01	 sub	 ecx, 1
+  00060	74 0d		 je	 SHORT $LN11@WmCommand
+  00062	83 e9 01	 sub	 ecx, 1
+  00065	74 03		 je	 SHORT $LN4@WmCommand
 $LN2@WmCommand:
 
-; 113  :     }
-; 114  :     return FALSE;
+; 117  :     }
+; 118  :     return FALSE;
 
-  0007b	33 c0		 xor	 eax, eax
+  00067	33 c0		 xor	 eax, eax
 
-; 115  : }
+; 119  : }
 
-  0007d	c3		 ret	 0
+  00069	c3		 ret	 0
 $LN4@WmCommand:
 
-; 102  :     case ID_FILE_DEFAULT: return CDefault();
+; 106  :     case ID_FILE_DEFAULT: return CDefault();
 
-  0007e	e9 00 00 00 00	 jmp	 ?CDefault@@YAHXZ	; CDefault
+  0006a	e9 00 00 00 00	 jmp	 ?CDefault@@YAHXZ	; CDefault
 $LN11@WmCommand:
 
-; 96   : __inline int CSelectAll() { SendMessage(hEdit, EM_SETSEL, 0, -1); return TRUE; }
+; 100  : __inline int CSelectAll() { SendMessage(hEdit, EM_SETSEL, 0, -1); return TRUE; }
 
-  00083	6a ff		 push	 -1
-  00085	6a 00		 push	 0
-  00087	68 b1 00 00 00	 push	 177			; 000000b1H
+  0006f	6a ff		 push	 -1
+  00071	6a 00		 push	 0
+  00073	68 b1 00 00 00	 push	 177			; 000000b1H
 
-; 107  :     case IDCANCEL:
-; 108  :     case ID_FILE_EXIT: return CEnd();
-; 109  :     case ID_EDIT_SELECTALL: return CSelectAll();
+; 111  :     case IDCANCEL:
+; 112  :     case ID_FILE_EXIT: return CEnd();
+; 113  :     case ID_EDIT_SELECTALL: return CSelectAll();
 
-  0008c	eb 1f		 jmp	 SHORT $LN30@WmCommand
+  00078	eb 1f		 jmp	 SHORT $LN28@WmCommand
 $LN14@WmCommand:
 
-; 95   : __inline int CPaste() { SendMessage(hEdit, WM_PASTE, 0, 0); return TRUE; }
+; 99   : __inline int CPaste() { SendMessage(hEdit, WM_PASTE, 0, 0); return TRUE; }
 
-  0008e	6a 00		 push	 0
-  00090	6a 00		 push	 0
-  00092	68 02 03 00 00	 push	 770			; 00000302H
+  0007a	6a 00		 push	 0
+  0007c	6a 00		 push	 0
+  0007e	68 02 03 00 00	 push	 770			; 00000302H
 
-; 112  :     case ID_EDIT_PASTE: return CPaste();
+; 116  :     case ID_EDIT_PASTE: return CPaste();
 
-  00097	eb 14		 jmp	 SHORT $LN30@WmCommand
+  00083	eb 14		 jmp	 SHORT $LN28@WmCommand
 $LN13@WmCommand:
 
-; 94   : __inline int CCopy() { SendMessage(hEdit, WM_COPY, 0, 0); return TRUE; }
+; 98   : __inline int CCopy() { SendMessage(hEdit, WM_COPY, 0, 0); return TRUE; }
 
-  00099	6a 00		 push	 0
-  0009b	6a 00		 push	 0
-  0009d	68 01 03 00 00	 push	 769			; 00000301H
+  00085	6a 00		 push	 0
+  00087	6a 00		 push	 0
+  00089	68 01 03 00 00	 push	 769			; 00000301H
 
-; 110  :     case ID_EDIT_CUT: return CCut();
-; 111  :     case ID_EDIT_COPY: return CCopy();
+; 114  :     case ID_EDIT_CUT: return CCut();
+; 115  :     case ID_EDIT_COPY: return CCopy();
 
-  000a2	eb 09		 jmp	 SHORT $LN30@WmCommand
+  0008e	eb 09		 jmp	 SHORT $LN28@WmCommand
 $LN12@WmCommand:
 
-; 93   : __inline int CCut() { SendMessage(hEdit, WM_CUT, 0, 0); return TRUE; }
+; 97   : __inline int CCut() { SendMessage(hEdit, WM_CUT, 0, 0); return TRUE; }
 
-  000a4	6a 00		 push	 0
-  000a6	6a 00		 push	 0
-  000a8	68 00 03 00 00	 push	 768			; 00000300H
-$LN30@WmCommand:
+  00090	6a 00		 push	 0
+  00092	6a 00		 push	 0
+  00094	68 00 03 00 00	 push	 768			; 00000300H
+$LN28@WmCommand:
 
-; 115  : }
+; 119  : }
 
-  000ad	ff 35 00 00 00
+  00099	ff 35 00 00 00
 	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
-  000b3	ff 15 00 00 00
+  0009f	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__SendMessageW@16
-  000b9	33 c0		 xor	 eax, eax
-  000bb	40		 inc	 eax
-  000bc	c3		 ret	 0
+  000a5	33 c0		 xor	 eax, eax
+  000a7	40		 inc	 eax
+  000a8	c3		 ret	 0
 ?WmCommand@@YAHIJ@Z ENDP				; WmCommand
+_TEXT	ENDS
+; Function compile flags: /Ogspy
+; File C:\s\gormb\minpad\minpad.cpp
+;	COMDAT ?WmSize@@YAHFF@Z
+_TEXT	SEGMENT
+?WmSize@@YAHFF@Z PROC					; WmSize, COMDAT
+; _w$ = cx
+; _h$ = dx
+
+; 121  : __inline int WmSize(__int16 w, __int16 h) { return MoveWindow(hEdit, 2, 2, w - 4, h - 4, TRUE);}
+
+  00000	6a 01		 push	 1
+  00002	0f bf c2	 movsx	 eax, dx
+  00005	83 e8 04	 sub	 eax, 4
+  00008	50		 push	 eax
+  00009	0f bf c1	 movsx	 eax, cx
+  0000c	83 e8 04	 sub	 eax, 4
+  0000f	50		 push	 eax
+  00010	6a 02		 push	 2
+  00012	6a 02		 push	 2
+  00014	ff 35 00 00 00
+	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
+  0001a	ff 15 00 00 00
+	00		 call	 DWORD PTR __imp__MoveWindow@24
+  00020	c3		 ret	 0
+?WmSize@@YAHFF@Z ENDP					; WmSize
 _TEXT	ENDS
 ; Function compile flags: /Ogspy
 ; File C:\s\gormb\minpad\minpad.cpp
@@ -309,179 +885,167 @@ _TEXT	SEGMENT
 ?WmKeydown@@YAHH@Z PROC					; WmKeydown, COMDAT
 ; _k$ = ecx
 
-; 121  :     if (!bIgnoreKeys && GetKeyState(VK_CONTROL) & 0x800) {
+; 125  :     if (!bIgnoreKeys && GetKeyState(VK_CONTROL) & 0x800) {
 
   00000	80 3d 00 00 00
 	00 00		 cmp	 BYTE PTR ?bIgnoreKeys@@3_NA, 0 ; bIgnoreKeys
   00007	56		 push	 esi
   00008	8b f1		 mov	 esi, ecx
-  0000a	0f 85 9c 00 00
+  0000a	0f 85 84 00 00
 	00		 jne	 $LN4@WmKeydown
   00010	6a 11		 push	 17			; 00000011H
   00012	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__GetKeyState@4
   00018	66 0f ba e0 0b	 bt	 ax, 11			; 0000000bH
-  0001d	0f 83 89 00 00
-	00		 jae	 $LN4@WmKeydown
+  0001d	73 75		 jae	 SHORT $LN4@WmKeydown
 
-; 122  :         bIgnoreKeys = true;
+; 126  :         bIgnoreKeys = true;
 
-  00023	c6 05 00 00 00
+  0001f	c6 05 00 00 00
 	00 01		 mov	 BYTE PTR ?bIgnoreKeys@@3_NA, 1 ; bIgnoreKeys
 
-; 123  :         switch (k) { // DNOSW AXCV
+; 127  :         switch (k) { // DNOSW AXCV
 
-  0002a	83 fe 4f	 cmp	 esi, 79			; 0000004fH
-  0002d	7f 62		 jg	 SHORT $LN17@WmKeydown
-  0002f	74 5a		 je	 SHORT $LN7@WmKeydown
-  00031	83 ee 41	 sub	 esi, 65			; 00000041H
-  00034	74 3b		 je	 SHORT $LN12@WmKeydown
-  00036	4e		 dec	 esi
-  00037	83 ee 01	 sub	 esi, 1
-  0003a	74 2a		 je	 SHORT $LN14@WmKeydown
-  0003c	83 ee 01	 sub	 esi, 1
-  0003f	74 1f		 je	 SHORT $LN5@WmKeydown
-  00041	83 ee 0a	 sub	 esi, 10			; 0000000aH
-  00044	75 5f		 jne	 SHORT $LN2@WmKeydown
+  00026	83 fe 4f	 cmp	 esi, 79			; 0000004fH
+  00029	7f 4e		 jg	 SHORT $LN17@WmKeydown
+  0002b	74 46		 je	 SHORT $LN7@WmKeydown
+  0002d	83 ee 41	 sub	 esi, 65			; 00000041H
+  00030	74 27		 je	 SHORT $LN12@WmKeydown
+  00032	4e		 dec	 esi
+  00033	83 ee 01	 sub	 esi, 1
+  00036	74 16		 je	 SHORT $LN14@WmKeydown
+  00038	83 ee 01	 sub	 esi, 1
+  0003b	74 0b		 je	 SHORT $LN5@WmKeydown
+  0003d	83 ee 0a	 sub	 esi, 10			; 0000000aH
+  00040	75 4b		 jne	 SHORT $LN2@WmKeydown
+  00042	5e		 pop	 esi
 
-; 29   : __inline int CNew() { *szFn = 0; return SetWindowTextA(hEdit, ""); }
+; 129  :         case 'N': return CNew();
 
-  00046	68 00 00 00 00	 push	 OFFSET ??_C@_00CNPNBAHC@@
-  0004b	ff 35 00 00 00
-	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
-  00051	c6 05 00 00 00
-	00 00		 mov	 BYTE PTR ?szFn@@3PADA, 0
-  00058	ff 15 00 00 00
-	00		 call	 DWORD PTR __imp__SetWindowTextA@8
-  0005e	5e		 pop	 esi
-
-; 138  : }
-
-  0005f	c3		 ret	 0
+  00043	e9 00 00 00 00	 jmp	 ?CNew@@YAHXZ		; CNew
 $LN5@WmKeydown:
-  00060	5e		 pop	 esi
+  00048	5e		 pop	 esi
 
-; 124  :         case 'D': return CDefault();
+; 128  :         case 'D': return CDefault();
 
-  00061	e9 00 00 00 00	 jmp	 ?CDefault@@YAHXZ	; CDefault
+  00049	e9 00 00 00 00	 jmp	 ?CDefault@@YAHXZ	; CDefault
 $LN14@WmKeydown:
 
-; 94   : __inline int CCopy() { SendMessage(hEdit, WM_COPY, 0, 0); return TRUE; }
+; 98   : __inline int CCopy() { SendMessage(hEdit, WM_COPY, 0, 0); return TRUE; }
 
-  00066	6a 00		 push	 0
-  00068	6a 00		 push	 0
-  0006a	68 01 03 00 00	 push	 769			; 00000301H
+  0004e	6a 00		 push	 0
+  00050	6a 00		 push	 0
+  00052	68 01 03 00 00	 push	 769			; 00000301H
 
-; 132  :         case 'C': return CCopy();
+; 136  :         case 'C': return CCopy();
 
-  0006f	eb 09		 jmp	 SHORT $LN44@WmKeydown
+  00057	eb 09		 jmp	 SHORT $LN42@WmKeydown
 $LN12@WmKeydown:
 
-; 96   : __inline int CSelectAll() { SendMessage(hEdit, EM_SETSEL, 0, -1); return TRUE; }
+; 100  : __inline int CSelectAll() { SendMessage(hEdit, EM_SETSEL, 0, -1); return TRUE; }
 
-  00071	6a ff		 push	 -1
-  00073	6a 00		 push	 0
-  00075	68 b1 00 00 00	 push	 177			; 000000b1H
-$LN44@WmKeydown:
+  00059	6a ff		 push	 -1
+  0005b	6a 00		 push	 0
+  0005d	68 b1 00 00 00	 push	 177			; 000000b1H
+$LN42@WmKeydown:
 
-; 138  : }
+; 142  : }
 
-  0007a	ff 35 00 00 00
+  00062	ff 35 00 00 00
 	00		 push	 DWORD PTR ?hEdit@@3PAUHWND__@@A ; hEdit
-  00080	ff 15 00 00 00
+  00068	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__SendMessageW@16
-  00086	33 c0		 xor	 eax, eax
-  00088	40		 inc	 eax
-  00089	5e		 pop	 esi
-  0008a	c3		 ret	 0
+  0006e	33 c0		 xor	 eax, eax
+  00070	40		 inc	 eax
+  00071	5e		 pop	 esi
+  00072	c3		 ret	 0
 $LN7@WmKeydown:
-  0008b	5e		 pop	 esi
+  00073	5e		 pop	 esi
 
-; 125  :         case 'N': return CNew();
-; 126  :         case 'O': return COpen();
+; 130  :         case 'O': return COpen();
 
-  0008c	e9 00 00 00 00	 jmp	 ?COpen@@YAHXZ		; COpen
+  00074	e9 00 00 00 00	 jmp	 ?COpen@@YAHXZ		; COpen
 $LN17@WmKeydown:
 
-; 123  :         switch (k) { // DNOSW AXCV
+; 127  :         switch (k) { // DNOSW AXCV
 
-  00091	83 ee 53	 sub	 esi, 83			; 00000053H
-  00094	74 40		 je	 SHORT $LN8@WmKeydown
-  00096	83 ee 03	 sub	 esi, 3
-  00099	74 30		 je	 SHORT $LN15@WmKeydown
-  0009b	83 ee 01	 sub	 esi, 1
-  0009e	74 1b		 je	 SHORT $LN10@WmKeydown
-  000a0	83 ee 01	 sub	 esi, 1
-  000a3	74 0b		 je	 SHORT $LN13@WmKeydown
+  00079	83 ee 53	 sub	 esi, 83			; 00000053H
+  0007c	74 40		 je	 SHORT $LN8@WmKeydown
+  0007e	83 ee 03	 sub	 esi, 3
+  00081	74 30		 je	 SHORT $LN15@WmKeydown
+  00083	83 ee 01	 sub	 esi, 1
+  00086	74 1b		 je	 SHORT $LN10@WmKeydown
+  00088	83 ee 01	 sub	 esi, 1
+  0008b	74 0b		 je	 SHORT $LN13@WmKeydown
 $LN2@WmKeydown:
 
-; 134  :         }
-; 135  :         bIgnoreKeys = false;
+; 138  :         }
+; 139  :         bIgnoreKeys = false;
 
-  000a5	c6 05 00 00 00
+  0008d	c6 05 00 00 00
 	00 00		 mov	 BYTE PTR ?bIgnoreKeys@@3_NA, 0 ; bIgnoreKeys
 $LN4@WmKeydown:
 
-; 136  :     }
-; 137  :     return FALSE;
+; 140  :     }
+; 141  :     return FALSE;
 
-  000ac	33 c0		 xor	 eax, eax
-  000ae	5e		 pop	 esi
+  00094	33 c0		 xor	 eax, eax
+  00096	5e		 pop	 esi
 
-; 138  : }
+; 142  : }
 
-  000af	c3		 ret	 0
+  00097	c3		 ret	 0
 $LN13@WmKeydown:
 
-; 93   : __inline int CCut() { SendMessage(hEdit, WM_CUT, 0, 0); return TRUE; }
+; 97   : __inline int CCut() { SendMessage(hEdit, WM_CUT, 0, 0); return TRUE; }
 
-  000b0	6a 00		 push	 0
-  000b2	6a 00		 push	 0
-  000b4	68 00 03 00 00	 push	 768			; 00000300H
+  00098	6a 00		 push	 0
+  0009a	6a 00		 push	 0
+  0009c	68 00 03 00 00	 push	 768			; 00000300H
 
-; 129  :         case 'W': return CEnd();
-; 130  :         case 'A': return CSelectAll();
-; 131  :         case 'X': return CCut();
+; 133  :         case 'W': return CEnd();
+; 134  :         case 'A': return CSelectAll();
+; 135  :         case 'X': return CCut();
 
-  000b9	eb bf		 jmp	 SHORT $LN44@WmKeydown
+  000a1	eb bf		 jmp	 SHORT $LN42@WmKeydown
 $LN10@WmKeydown:
 
-; 98   : __inline int CEnd() { return EndDialog(hDlg, 0);  }
+; 102  : __inline int CEnd() { return EndDialog(hDlg, 0);  }
 
-  000bb	6a 00		 push	 0
-  000bd	ff 35 00 00 00
+  000a3	6a 00		 push	 0
+  000a5	ff 35 00 00 00
 	00		 push	 DWORD PTR ?hDlg@@3PAUHWND__@@A ; hDlg
-  000c3	ff 15 00 00 00
+  000ab	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__EndDialog@8
-  000c9	5e		 pop	 esi
+  000b1	5e		 pop	 esi
 
-; 138  : }
+; 142  : }
 
-  000ca	c3		 ret	 0
+  000b2	c3		 ret	 0
 $LN15@WmKeydown:
 
-; 95   : __inline int CPaste() { SendMessage(hEdit, WM_PASTE, 0, 0); return TRUE; }
+; 99   : __inline int CPaste() { SendMessage(hEdit, WM_PASTE, 0, 0); return TRUE; }
 
-  000cb	6a 00		 push	 0
-  000cd	6a 00		 push	 0
-  000cf	68 02 03 00 00	 push	 770			; 00000302H
+  000b3	6a 00		 push	 0
+  000b5	6a 00		 push	 0
+  000b7	68 02 03 00 00	 push	 770			; 00000302H
 
-; 133  :         case 'V': return CPaste();
+; 137  :         case 'V': return CPaste();
 
-  000d4	eb a4		 jmp	 SHORT $LN44@WmKeydown
+  000bc	eb a4		 jmp	 SHORT $LN42@WmKeydown
 $LN8@WmKeydown:
 
-; 127  :         case 'S': if (!*szFn) return CSaveas();
+; 131  :         case 'S': if (!*szFn) return CSaveas();
 
-  000d6	80 3d 00 00 00
+  000be	80 3d 00 00 00
 	00 00		 cmp	 BYTE PTR ?szFn@@3PADA, 0
-  000dd	5e		 pop	 esi
-  000de	0f 84 00 00 00
+  000c5	5e		 pop	 esi
+  000c6	0f 84 00 00 00
 	00		 je	 ?CSaveas@@YAHXZ		; CSaveas
 
-; 128  :                 else return CSave();
+; 132  :                 else return CSave();
 
-  000e4	e9 00 00 00 00	 jmp	 ?CSave@@YAHXZ		; CSave
+  000cc	e9 00 00 00 00	 jmp	 ?CSave@@YAHXZ		; CSave
 ?WmKeydown@@YAHH@Z ENDP					; WmKeydown
 _TEXT	ENDS
 ; Function compile flags: /Ogspy
@@ -494,7 +1058,7 @@ _lP$ = 12						; size = 4
 ; _hDlgl$ = ecx
 ; _uM$ = edx
 
-; 142  :     switch (uM) {
+; 146  :     switch (uM) {
 
   00000	83 ea 05	 sub	 edx, 5
   00003	74 2c		 je	 SHORT $LN5@t_WinProc
@@ -506,42 +1070,42 @@ _lP$ = 12						; size = 4
   00012	83 ea 01	 sub	 edx, 1
   00015	74 03		 je	 SHORT $LN7@t_WinProc
 
-; 149  :     default: return FALSE;
+; 153  :     default: return FALSE;
 
   00017	33 c0		 xor	 eax, eax
 
-; 150  :     }
-; 151  : }
+; 154  :     }
+; 155  : }
 
   00019	c3		 ret	 0
 $LN7@t_WinProc:
 
-; 147  :     #endif
-; 148  :     case WM_COMMAND: return WmCommand(wP, lP); // pass-through; FALSE
+; 151  :     #endif
+; 152  :     case WM_COMMAND: return WmCommand(wP, lP); // pass-through; FALSE
 
   0001a	8b 4c 24 04	 mov	 ecx, DWORD PTR _wP$[esp-4]
   0001e	e9 00 00 00 00	 jmp	 ?WmCommand@@YAHIJ@Z	; WmCommand
 $LN4@t_WinProc:
 
-; 143  :     case WM_INITDIALOG: return WmInit(hDlgl);
+; 147  :     case WM_INITDIALOG: return WmInit(hDlgl);
 
   00023	e9 00 00 00 00	 jmp	 ?WmInit@@YAHPAUHWND__@@@Z ; WmInit
 $LN6@t_WinProc:
 
-; 145  :     #ifdef SHORTCUT_KEYS
-; 146  :         case WM_KEYDOWN: return WmKeydown(wP);
+; 149  :     #ifdef SHORTCUT_KEYS
+; 150  :         case WM_KEYDOWN: return WmKeydown(wP);
 
   00028	8b 4c 24 04	 mov	 ecx, DWORD PTR _wP$[esp-4]
   0002c	e9 00 00 00 00	 jmp	 ?WmKeydown@@YAHH@Z	; WmKeydown
 $LN5@t_WinProc:
 
-; 144  :     case WM_SIZE: return WmSize(lP, lP>>16);
+; 148  :     case WM_SIZE: return WmSize(lP, lP>>16);
 
   00031	8b 4c 24 08	 mov	 ecx, DWORD PTR _lP$[esp-4]
   00035	8b c1		 mov	 eax, ecx
   00037	c1 f8 10	 sar	 eax, 16			; 00000010H
 
-; 117  : __inline int WmSize(__int16 w, __int16 h) { return MoveWindow(hEdit, 2, 2, w - 4, h - 4, TRUE);}
+; 121  : __inline int WmSize(__int16 w, __int16 h) { return MoveWindow(hEdit, 2, 2, w - 4, h - 4, TRUE);}
 
   0003a	6a 01		 push	 1
   0003c	98		 cwde
@@ -557,8 +1121,8 @@ $LN5@t_WinProc:
   00052	ff 15 00 00 00
 	00		 call	 DWORD PTR __imp__MoveWindow@24
 
-; 150  :     }
-; 151  : }
+; 154  :     }
+; 155  : }
 
   00058	c3		 ret	 0
 ?_t_WinProc@@YAHPAUHWND__@@IIJ@Z ENDP			; _t_WinProc
@@ -573,7 +1137,7 @@ _wP$ = 16						; size = 4
 _lP$ = 20						; size = 4
 ?EditProc@@YGHPAUHWND__@@IIJ@Z PROC			; EditProc, COMDAT
 
-; 154  :     int __stdcall EditProc(HWND hwnd, UINT msg, WPARAM wP, LPARAM lP) { return msg&WM_KEYDOWN & !WmKeydown(wP) | CallWindowProc(pOrgEdit, hwnd, msg, wP, lP); }
+; 158  :     int __stdcall EditProc(HWND hwnd, UINT msg, WPARAM wP, LPARAM lP) { return msg&WM_KEYDOWN & !WmKeydown(wP) | CallWindowProc(pOrgEdit, hwnd, msg, wP, lP); }
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -601,12 +1165,12 @@ _wp$ = 16						; size = 4
 _lp$ = 20						; size = 4
 ?aWinProc@@YGHPAUHWND__@@IIJ@Z PROC			; aWinProc, COMDAT
 
-; 161  :     __inline __int32 CALLBACK aWinProc(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp) { return _t_WinProc(hDlg, msg, wp, lp); }
+; 165  :     __inline __int32 CALLBACK aWinProc(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp) { return _t_WinProc(hDlg, msg, wp, lp); }
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
 
-; 142  :     switch (uM) {
+; 146  :     switch (uM) {
 
   00003	8b 45 0c	 mov	 eax, DWORD PTR _msg$[ebp]
   00006	83 e8 05	 sub	 eax, 5
@@ -618,42 +1182,42 @@ _lp$ = 20						; size = 4
   00017	83 e8 01	 sub	 eax, 1
   0001a	74 04		 je	 SHORT $LN9@aWinProc
 
-; 149  :     default: return FALSE;
+; 153  :     default: return FALSE;
 
   0001c	33 c0		 xor	 eax, eax
   0001e	eb 44		 jmp	 SHORT $LN3@aWinProc
 $LN9@aWinProc:
 
-; 147  :     #endif
-; 148  :     case WM_COMMAND: return WmCommand(wP, lP); // pass-through; FALSE
+; 151  :     #endif
+; 152  :     case WM_COMMAND: return WmCommand(wP, lP); // pass-through; FALSE
 
   00020	8b 4d 10	 mov	 ecx, DWORD PTR _wp$[ebp]
   00023	e8 00 00 00 00	 call	 ?WmCommand@@YAHIJ@Z	; WmCommand
   00028	eb 3a		 jmp	 SHORT $LN3@aWinProc
 $LN6@aWinProc:
 
-; 143  :     case WM_INITDIALOG: return WmInit(hDlgl);
+; 147  :     case WM_INITDIALOG: return WmInit(hDlgl);
 
   0002a	8b 4d 08	 mov	 ecx, DWORD PTR _hDlg$[ebp]
   0002d	e8 00 00 00 00	 call	 ?WmInit@@YAHPAUHWND__@@@Z ; WmInit
   00032	eb 30		 jmp	 SHORT $LN3@aWinProc
 $LN8@aWinProc:
 
-; 145  :     #ifdef SHORTCUT_KEYS
-; 146  :         case WM_KEYDOWN: return WmKeydown(wP);
+; 149  :     #ifdef SHORTCUT_KEYS
+; 150  :         case WM_KEYDOWN: return WmKeydown(wP);
 
   00034	8b 4d 10	 mov	 ecx, DWORD PTR _wp$[ebp]
   00037	e8 00 00 00 00	 call	 ?WmKeydown@@YAHH@Z	; WmKeydown
   0003c	eb 26		 jmp	 SHORT $LN3@aWinProc
 $LN7@aWinProc:
 
-; 144  :     case WM_SIZE: return WmSize(lP, lP>>16);
+; 148  :     case WM_SIZE: return WmSize(lP, lP>>16);
 
   0003e	8b 4d 14	 mov	 ecx, DWORD PTR _lp$[ebp]
   00041	8b c1		 mov	 eax, ecx
   00043	c1 f8 10	 sar	 eax, 16			; 00000010H
 
-; 117  : __inline int WmSize(__int16 w, __int16 h) { return MoveWindow(hEdit, 2, 2, w - 4, h - 4, TRUE);}
+; 121  : __inline int WmSize(__int16 w, __int16 h) { return MoveWindow(hEdit, 2, 2, w - 4, h - 4, TRUE);}
 
   00046	6a 01		 push	 1
   00048	98		 cwde
@@ -670,7 +1234,7 @@ $LN7@aWinProc:
 	00		 call	 DWORD PTR __imp__MoveWindow@24
 $LN3@aWinProc:
 
-; 161  :     __inline __int32 CALLBACK aWinProc(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp) { return _t_WinProc(hDlg, msg, wp, lp); }
+; 165  :     __inline __int32 CALLBACK aWinProc(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp) { return _t_WinProc(hDlg, msg, wp, lp); }
 
   00064	5d		 pop	 ebp
   00065	c2 10 00	 ret	 16			; 00000010H
@@ -682,7 +1246,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ?aWinMain@@YGHXZ PROC					; aWinMain, COMDAT
 
-; 168  :         int APIENTRY aWinMain() { return DialogBoxParamA(0, (char*)103, 0, aWinProc, 0); }
+; 172  :         int APIENTRY aWinMain() { return DialogBoxParamA(0, (char*)103, 0, aWinProc, 0); }
 
   00000	33 c0		 xor	 eax, eax
   00002	50		 push	 eax

@@ -1,4 +1,4 @@
-#include "minipad.h"
+#include "minpad.h"
 #include "resource.h"
 
 #define SHORTCUT_KEYS
@@ -12,28 +12,30 @@ OPENFILENAMEA ofn = { 0 };
 bool bIgnoreKeys = false;
 
 __inline int WmInit(HWND hDlgl) {
-    hDlg = hDlgl;
-    hEdit = GetDlgItem(hDlg, IDC_TEXTBOX);
-#ifdef SHORTCUT_KEYS
-    pOrgEdit = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc);
-#endif
     ofn.lStructSize = sizeof(ofn);
-    ofn.hwndOwner = hDlg;
+    ofn.hwndOwner = hDlg = hDlgl;
     ofn.lpstrFile = szFn;
     ofn.nMaxFile = MAX_PATH;
     ofn.lpstrFilter = "Text (*.txt)\0*.txt\0All (*.*)\0*.*\0";
     ofn.nFilterIndex = 1;
+    hEdit = GetDlgItem(hDlg, IDC_TEXTBOX);
+#ifdef SHORTCUT_KEYS
+    pOrgEdit = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc); // Subclass edit control to preview keyboard
+#endif
     return CDefault();
 }
 
-__inline int CNew() { *szFn = 0; return SetWindowTextA(hEdit, ""); }
+__inline void SetFn() {
+    SetWindowTextA(hDlg, szFn);
+}
+__inline int CNew() { *szFn = 0; SetFn(); return SetWindowTextA(hEdit, ""); }
 
 int CLoad() {
     HANDLE hFile = CreateFileA(szFn, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
     if (hFile == INVALID_HANDLE_VALUE)
         return FALSE;
     else {
-        DWORD dwRead, dwFs = GetFileSize(hFile, NULL);
+        DWORD dwFs = GetFileSize(hFile, NULL);
         LPSTR buf = (LPSTR)GlobalAlloc(GPTR, dwFs + 1);
         if (ReadFile(hFile, buf, dwFs, &dwFs, 0)) {
             buf[dwFs] = 0;
@@ -42,6 +44,7 @@ int CLoad() {
         GlobalFree(buf);
         CloseHandle(hFile);
     }
+    SetFn();
     return TRUE;
 }
 
@@ -59,6 +62,7 @@ int CSave() {
         WriteFile(hFile, buf, dwLen * sizeof(WCHAR), &dwWritten, NULL);
         GlobalFree(buf);
         CloseHandle(hFile);
+        SetFn();
     }
     return TRUE;
 }
@@ -68,7 +72,7 @@ int CDefault() {
     while (*arg == ' ') arg++; // skip trailing spaces
     WCHAR wEnd = *arg == '\"' ? *arg++ : ' ';
     char* pFn = szFn;
-    for (int i = 0; i < MAX_PATH - 1 && *arg && *arg != wEnd; i++) 
+    for (int i = 0; i < MAX_PATH && *arg && *arg != wEnd; i++) 
         *pFn++ = (char)*arg++;
     *((DWORD*)(pFn - 3)) = 0x00747874; // end with "txt\0"
     return CLoad() || CSave();
@@ -86,7 +90,7 @@ int CSaveas() {
     ofn.lpstrTitle = "Save";
     ofn.Flags = OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
     if (GetSaveFileNameA(&ofn))
-        CSave();
+        return CSave();
     return TRUE;
 }
 

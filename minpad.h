@@ -1,8 +1,7 @@
 #pragma once
-#ifndef WINMIN_H
-#define WINMIN_H
+#include <windows.h> // release x86, debug x64
 
-#include <windows.h>
-#include "resource.h"
+int CSaveas();
+int CSave();
+int CDefault();
 
-#endif
