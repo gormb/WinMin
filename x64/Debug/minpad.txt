@@ -1,0 +1,429 @@
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+Gunnar
+Gunnar
+Gunnar
+Gunnar
+
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+Gunnar
+Gunnar
+Gunnar
+Gunnar
+
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+Gunnar
+Gunnar
+Gunnar
+Gunnar
+
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+Gunnar
+Gunnar
+Gunnar
+Gunnar
+
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.22621.2506_none_b43bab19638c9595\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\comctl32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. 
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(1) tid(3608) 8007029C An assertion failure has occurred.
+clientcore\windows\advcore\ctf\uim\tim.cpp(800)\MSCTF.dll!00007FFAD35365D9: (caller: 00007FFAD353720C) LogHr(2) tid(3608) 8007029C An assertion failure has occurred.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. 
+The thread 0x6dec has exited with code 0 (0x0).
+The thread 0x5cfc has exited with code 0 (0x0).
+The thread 0x2664 has exited with code 0 (0x0).
+The program '[15384] minpad.exe' has exited with code 0 (0x0).
+'minpad.exe' (Win32): Loaded 'C:\s\gormb\minpad\x64\Debug\minpad.exe'. Symbols loaded.
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. 
+'minpad.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. 
+'minp        ım#s ÄÑ\»n  ¿sTŒn          DEŒn  
+       @HŒn          FEŒn         P9JŒn          DEŒn  
+        HŒn          EEŒn         ˙ˇˇˇ            pEŒn                        @–DŒn  
+         HŒn          pHEŒn         ˝ˇˇˇ            êDEŒn         ˛ˇˇˇ            0FEŒn                        ‡œDŒn         ˝ˇˇˇ             EŒn         o            @—DŒn         P               pDEŒn         x               ‡EŒn         @‹CŒn           ÌDŒn         Ä›CŒn          GEŒn                        –EEŒn                         pEEŒn                         pFEŒn         7JŒn          êEEŒn         09JŒn           —DŒn  
+       @HŒn          EEŒn         ÄHŒn          –FEŒn                         ‡EŒn         “¿              0@Œn                         ∞DEŒn         ê9JŒn           EŒn                         ‡EŒn                         ÄEŒn         ˝ˇˇˇ            PGEŒn         ˛ˇˇˇ            HEŒn                         p@Œn         ü              ¿–DŒn         o            †—DŒn          ,“>{  Ä       ÿ¿ä n          †”DŒn                         ∞„DŒn          [JŒn           IEŒn                        Ä”DŒn         ê:Œn           JEŒn  
+       @(HŒn          p÷DŒn         Ÿ¿              ¿IEŒn                        ‡IEŒn         †MŒn          @EŒn          ∂Ü n           MEŒn  
+       @*HŒn           LEŒn                        ‡JEŒn         ⁄¿               KEŒn         ƒ               †IEŒn                        `KEŒn                       ¿JEŒn                         ÄJEŒn                         ÄLEŒn         ‡VJŒn          @KEŒn                         LEŒn         Ç¿              ¿LEŒn         €¿              ÄKEŒn                        ¿KEŒn                        †KEŒn         pAMŒn          ‡KEŒn         €¿:Œn           EŒn         Ùˇˇˇ            †JEŒn         ê              †LEŒn                         ‡LEŒn         0=MŒn           KEŒn                         `LEŒn                        @LEŒn         ∞              JEŒn                         †MEŒn  
+        (HŒn          Ä‡DŒn         ‹¿              `MEŒn                        ÄMEŒn         ∞  7            MEŒn                        ÄNEŒn         ›¿HŒn          `NEŒn         ∞QŒn          ‡NEŒn         #               ‡MEŒn  
+       ∞ªEŒn          @MEŒn                         NEŒn                        ¿MEŒn                         P÷DŒn                          NEŒn         @+HŒn          ∞÷DŒn                                                                                                                          §¸¿⁄tê	CŒn   6CŒn     ¿–‡}…^    T      –OEŒn                          Å^3W’ﬁË i0‡˜Ò<˘ˇˇˇˇˇ        Ω”†|   Ä        ∏/Ü˙         €?Œn                                                          ª”™|  Ä        Ë/Ü˙        ∞€?Œn  H/Ü˙     n  p>@Œn                                  ±”¥|  Ä        Ë/Ü˙     ˙  ∞⁄?Œn  H/Ü˙     n  –⁄?Œn                                  Ø”æ|  Ä        Ë/Ü˙     ˙  €?Œn  H/Ü˙     n  –⁄?Œn                                  •”∏|  Ä                                                                                        £”Ç|  Ä        Ë/Ü˙         €?Œn  H/Ü˙         p>@Œn                                  ô”å|  Ä                                                                                        ó”ñ|  Ä        ÄÏ’Ø˙         ;@Œn  @?÷Ø˙         †‘◊Ø˙                                  ç”ê|  Ä        Ë/Ü˙     n  €?Œn  H/Ü˙     n  ê:@Œn                                  ã”ö| 	 Ä        H/Ü˙         p>@Œn                                                          Å”‰| 
+ Ä        Ë/Ü˙         €?Œn  H/Ü˙         –⁄?Œn                                  ˇ”Ó|  Ä        ÄÏ’Ø˙         ∞Ÿ?Œn                                                          ı”Ë|  Ä        Ë/Ü˙         €?Œn                                                          Û”Ú|  Ä        ∏/Ü˙     n  ∞€?Œn                                                          È”¸|  Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         p>@Œn                                  Á”∆|  Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         ê⁄?Œn                                  ›”¿|  Ä        Ë/Ü˙        ∞€?Œn  H/Ü˙     n  –⁄?Œn                                  €” |  Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         ê:@Œn                                  —”‘|  Ä        H/Ü˙     ˙  ê⁄?Œn  @?÷Ø˙     n  †‘◊Ø˙                                  œ”ﬁ|  Ä        Ë/Ü˙     ˙  €?Œn  H/Ü˙     n  P⁄?Œn                                  ≈”ÿ|  Ä        Ë/Ü˙         ∞€?Œn                                                          √”"|  Ä        H/Ü˙     ˙  ê⁄?Œn                                                          9”,|  Ä                                                                                        7”6|  Ä        Ë/Ü˙        ∞€?Œn  H/Ü˙     n  ê:@Œn                                  -”0|  Ä                                                                                        +”:|  Ä        Ë/Ü˙     ˙  €?Œn  H/Ü˙     n  p>@Œn                                  !”|  Ä        ∏/Ü˙     n  ∞€?Œn                                                          ”|  Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         P⁄?Œn                                  ”|  Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         ê⁄?Œn                                  ”|  Ä                                                                                        	”|  Ä                                                                                        ”f|  Ä        Ë/Ü˙     ˙  ∞⁄?Œn  H/Ü˙     n  p>@Œn                                  }”`|   Ä        ÄÏ’Ø˙         pŸ?Œn                                                          {”j| ! Ä        ÄÏ’Ø˙         ∞Ÿ?Œn  @?÷Ø˙         †‘◊Ø˙                                  q”t| " Ä        ÄÏ’Ø˙         ;@Œn                                                          o”~| # Ä                                                                                        e”x| $ Ä                                                                                        c”B| % Ä                                                                                        Y”L| & Ä        H/Ü˙         ê⁄?Œn                                                          W”V| ' Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         –⁄?Œn                                  M”P| ( Ä        ÄÏ’Ø˙         0I@Œn                                                          K”Z| ) Ä                                                                                        A”§} * Ä        H/Ü˙         ê⁄?Œn  @?÷Ø˙         †‘◊Ø˙                                  ø–Æ} + Ä                                                                                        µ–®} , Ä        Ë/Ü˙         ∞€?Œn                                                          ≥–≤} - ÄPÏ’Ø˙  ÿ/Ü˙  (/Ü˙  à/Ü˙  à÷Ø˙  ÿá.Ü˙  X/Ü˙  x/Ü˙  ∏/Ü˙                  ©–º} . Ä                                                                                        ß–Ü} / Ä        ÄÏ’Ø˙     ˙  ;@Œn  @?÷Ø˙     n  †‘◊Ø˙                                  ù–Ä} 0 Ä        Ë/Ü˙     ˙  €?Œn  H/Ü˙     n  ê:@Œn                                  õ–ä} 1 Ä        Ë/Ü˙        €?Œn  H/Ü˙     n  ê⁄?Œn                                  ë–î} 2 Ä                                                                                        è–û} 3 Ä        H/Ü˙         p>@Œn  @?÷Ø˙         †‘◊Ø˙                                  Ö–ò} 4 Ä        Ë/Ü˙         ∞⁄?Œn  H/Ü˙         ê⁄?Œn                                  É–‚} 5 Ä        Ë/Ü˙         ∞⁄?Œn                                                          ˘–Ï} 6 Ä        Ë/Ü˙     ˙  ∞⁄?Œn  H/Ü˙     n  ê⁄?Œn                                  ˜–ˆ} 7 Ä        Ë/Ü˙     ˙  ∞⁄?Œn                                                          Ì–} 8 Ä        Ë/Ü˙        €?Œn                                                          Î–˙} 9 Ä                                                                                        ·–ƒ} : Ä        H/Ü˙         p>@Œn                                                          ﬂ–Œ} ; Ä        ∏/Ü˙     ˙  €?Œn                                                          ’–»} < Ä                                                                                        ”–“} = Ä                                                                                        …–‹} > Ä        Ë/Ü˙         ∞⁄?Œn  H/Ü˙         p>@Œn                                  «–&} ? Ä        Ë/Ü˙         €?Œn  H/Ü˙         ê⁄?Œn                                  =– } @ Ä        ∏/Ü˙         ∞EŒn                                                          ;–*} A Ä                                                                                        1–4} B Ä                                                                                        /–>} C Ä                                                                                        %–8} D Ä        H/Ü˙     n  p>@Œn                                                          #–} E Ä        ÄÏ’Ø˙     n  0I@Œn                                                          –} F Ä                                                                                        –} G Ä        Ë/Ü˙         €?Œn  H/Ü˙         ê:@Œn                                  –} H Ä                                                                                        –} I Ä        Ë/Ü˙        ∞€?Œn  H/Ü˙     n  –⁄?Œn                                  –d} J Ä                                                                                        –n} K Ä        ∏/Ü˙         €?Œn                                                          u–h} L Ä        ÄÏ’Ø˙         ∞Ÿ?Œn  @?÷Ø˙         †‘◊Ø˙                                  s–r} M Ä        Ë/Ü˙         €?Œn                                                          i–|} N Ä        ÄÏ’Ø˙         ;@Œn                                                          g–F} O Ä                                                                                        ]–@} P Ä                                                                                        [–J} Q Ä        H/Ü˙         p>@Œn                                                          Q–T} R Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         ê⁄?Œn                                  O–^} S Ä                                                                                        E–X} T Ä        H/Ü˙         p>@Œn  @?÷Ø˙         †‘◊Ø˙                                  C–¢~ U Ä        H/Ü˙         p>@Œn                                                          π—¨~ V Ä                                                                                        ∑—∂~ W Ä                                                                                        ≠—∞~ X Ä        H/Ü˙     ˙  p>@Œn                                                          ´—∫~ Y Ä        ÄÏ’Ø˙         ;@Œn  @?÷Ø˙         †‘◊Ø˙                                  °—Ñ~ Z Ä        ÄÏ’Ø˙         ∞Ÿ?Œn                                                          ü—é~ [ Ä        Ë/Ü˙     ˙  ∞€?Œn                                                          ï—à~ \ Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         ê€?Œn                                  ì—í~ ] Ä        Ë/Ü˙     ˙  ∞⁄?Œn  H/Ü˙     ˙  p>@Œn                                  â—ú~ ^ Ä                                                                                        á—Ê~ _ Ä                                                                                        ˝—‡~ ` Ä        Ë/Ü˙         €?Œn  H/Ü˙         P⁄?Œn                                  ˚—Í~ a Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         p>@Œn                                  Ò—Ù~ b Ä        Ë/Ü˙         ∞⁄?Œn                                                          Ô—˛~ c Ä                                                                                        Â—¯~ d Ä        ÄÏ’Ø˙         pŸ?Œn                                                          „—¬~ e Ä        Ë/Ü˙         €?Œn  H/Ü˙         p>@Œn                                  Ÿ—Ã~ f Ä                                                                                        ◊—÷~ g Ä        Ë/Ü˙         ∞€?Œn  H/Ü˙         P⁄?Œn                                  Õ—–~ h Ä        ÄÏ’Ø˙     n  0I@Œn                                                          À—⁄~ i Ä                                                                                        ¡—$~ j Ä                                                                                        ?—.~ k Ä                                                                                        5—(~ l Ä        ∏/Ü˙         ∞€?Œn                                                          3—2~ m Ä                                                                                        )—<~ n Ä                                                                                        '—~ o Ä        Ë/Ü˙         €?Œn  H/Ü˙         ê€?Œn                                  — ~ p Ä        ÄÏ’Ø˙         ∞Ÿ?Œn  @?÷Ø˙         †‘◊Ø˙                                  —
+~ q Ä                                                                                        —~ r Ä                                                                                        —~ s Ä        ÄÏ’Ø˙         pŸ?Œn                                                          —~ t Ä        H/Ü˙         p>@Œn  @?÷Ø˙         †‘◊Ø˙                                  —b~ u Ä        Ë/Ü˙        ∞€?Œn  H/Ü˙     n  ê:@Œn                                  y—l~ v Ä                                                                                        w—v~ w Ä        Ë/Ü˙         ∞⁄?Œn  H/Ü˙         ê:@Œn                                  m—p~ x Ä                                                                                        k—z~ y Ä                                                                                        a—D~ z Ä                                                                                        _—N~ { Ä        ÄÏ’Ø˙         ∞Ÿ?Œn                                                          U—H~ | Ä        ÄÏ’Ø˙         ;@Œn                                                          S—R~ } Ä        ÄÏ’Ø˙         ;@Œn  @?÷Ø˙         †‘◊Ø˙                                  I—\~ ~ Ä        Ë/Ü˙         ∞⁄?Œn  H/Ü˙         p>@Œn                                  G—¶  Ä                                                                                        Ωﬁ† Ä Ä        ÄÏ’Ø˙     n  ;@Œn  @?÷Ø˙     n  †‘◊Ø˙                                  ªﬁ™ Å Ä        Ë/Ü˙     n  EŒn  H/Ü˙     n  p>@Œn                                  ±ﬁ¥ Ç Ä        H/Ü˙     n  p>@Œn                                                          Øﬁæ É Ä        ÄÏ’Ø˙     n  ∞Ÿ?Œn  @?÷Ø˙     n  †‘◊Ø˙                                  •ﬁ∏ Ñ Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  –⁄?Œn                                  £ﬁÇ Ö Ä                                                                                        ôﬁå Ü Ä        H/Ü˙         p>@Œn                                                          óﬁñ á Ä        ÄÏ’Ø˙     n  pŸ?Œn                                                          çﬁê à Ä        H/Ü˙     n  p>@Œn                                                          ãﬁö â Ä        Ë/Ü˙         EŒn  H/Ü˙         ê:@Œn                                  Åﬁ‰ ä Ä                                                                                        ˇﬁÓ ã Ä        Ë/Ü˙         EŒn  H/Ü˙         P⁄?Œn                                  ıﬁË å Ä                                                                                        ÛﬁÚ ç Ä                                                                                        Èﬁ¸ é Ä                                                                                        Áﬁ∆ è Ä                                                                                        ›ﬁ¿ ê Ä                                                                                        €ﬁ  ë Ä                                                                                        —ﬁ‘ í Ä                                                                                        œﬁﬁ ì Ä        H/Ü˙         p>@Œn  @?÷Ø˙         †‘◊Ø˙                                  ≈ﬁÿ î Ä        ÄÏ’Ø˙     n  0I@Œn                                                          √ﬁ" ï Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  ê:@Œn                                  9ﬁ, ñ Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  ê:@Œn  @?÷Ø˙     n  †‘◊Ø˙          7ﬁ6 ó Ä                                                                                        -ﬁ0 ò Ä        Ë/Ü˙     n  ∞⁄?Œn  H/Ü˙     n  p>@Œn                                  +ﬁ: ô Ä        Ë/Ü˙         ∞EŒn  H/Ü˙         ê:@Œn                                  !ﬁ ö Ä                                                                                        ﬁ õ Ä                                                                                        ﬁ ú Ä        ÄÏ’Ø˙         ∞Ÿ?Œn  @?÷Ø˙         †‘◊Ø˙                                  ﬁ ù Ä        ∏/Ü˙     n  ∞EŒn                                                          	ﬁ û Ä                                                                                        ﬁf ü Ä                                                                                        }ﬁ` † Ä        ÄÏ’Ø˙         pŸ?Œn                                                          {ﬁj ° Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  p>@Œn                                  qﬁt ¢ Ä                                                                                        oﬁ~ £ Ä                                                                                        eﬁx § Ä        Ë/Ü˙         ∞EŒn  H/Ü˙         p>@Œn                                  cﬁB • Ä        ÄÏ’Ø˙         ∞Ÿ?Œn                                                          YﬁL ¶ Ä        ÄÏ’Ø˙     n  ;@Œn                                                          WﬁV ß Ä                                                                                        MﬁP ® Ä                                                                                        KﬁZ © Ä        ÄÏ’Ø˙     n  ∞Ÿ?Œn                                                          Aﬁ§x ™ Ä                                                                                        øﬂÆx ´ Ä        ÄÏ’Ø˙     n  ;@Œn                                                          µﬂ®x ¨ Ä        Ë/Ü˙         ∞EŒn  H/Ü˙         ê:@Œn  @?÷Ø˙         †‘◊Ø˙          ≥ﬂ≤x ≠ Ä                                                                                        ©ﬂºx Æ Ä                                                                                        ßﬂÜx Ø Ä                                                                                        ùﬂÄx ∞ Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  ê:@Œn                                  õﬂäx ± Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  –⁄?Œn  @?÷Ø˙     n  †‘◊Ø˙          ëﬂîx ≤ Ä                                                                                        èﬂûx ≥ Ä                                                                                        Öﬂòx ¥ Ä                                                                                        Éﬂ‚x µ Ä                                                                                        ˘ﬂÏx ∂ Ä        H/Ü˙     n  p>@Œn                                                          ˜ﬂˆx ∑ Ä                                                                                        Ìﬂx ∏ Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  ê:@Œn                                  Îﬂ˙x π Ä        H/Ü˙     n  p>@Œn  @?÷Ø˙     n  †‘◊Ø˙                                  ·ﬂƒx ∫ Ä        Ë/Ü˙     n  ∞EŒn  H/Ü˙     n  –⁄?Œn                                  ﬂﬂŒx ª Ä        ÄÏ’Ø˙     n  0I@Œn                                                          ’ﬂ»x º Ä        ÄÏ’Ø˙     n  ;@Œn  @?÷Ø˙     n  †‘◊Ø˙                                  ”ﬂ“x Ω Ä                                                                                        …ﬂ‹x æ Ä        Ë/Ü˙     n  –EŒn  H/Ü˙     n  p>@Œn                                  «ﬂ&x ø Ä        ∏/Ü˙     n  EŒn                                                          =ﬂ x ¿ à§EŒn  ∞öEŒn  `"DŒn   ısü˙                8ÿßü˙  ¯ GŒn                          ;ﬂ*x ¡ ÄC : \ W I N D O W S \ S y s t e m 3 2 \ S t r u c t u r e d Q u e r y . d l l   l       1ﬂ4x ¬ Ä        Ë/Ü˙         0EŒn  H/Ü˙         P⁄?Œn                                  /ﬂ>x √ Ä        Ë/Ü˙        0EŒn  H/Ü˙     n  P⁄?Œn  @?÷Ø˙        †‘◊Ø˙          %ﬂ8x ƒ Ä        ∏/Ü˙     n  pEŒn                                                          #ﬂx ≈ ÄP9GŒn                  P3GŒn  ‡6GŒn          ê8GŒn                  ‡3GŒn          ﬂx ∆ ÄC : \ W i n d o w s \ S y s t e m 3 2 \ u i a u t o m a t i o n c o r e . d l l        ﬂx « àòEŒn  0úEŒn   +DŒn                           ÿßü˙  ∏ƒDŒn                         ﬂx » Ä        Ë/Ü˙         0EŒn  H/Ü˙         p€?Œn  @?÷Ø˙         †‘◊Ø˙          ﬂx … à¢EŒn  –õEŒn   DŒn   ısü˙                Äÿßü˙  ¯ÀDŒn                         ﬂdx   àpõEŒn  P£EŒn  ‡$DŒn   ısü˙                hÿßü˙  x…DŒn                         ﬂnx À à∞öEŒn  0ÆEŒn  Ä*DŒn                           ÿßü˙  #GŒn                          uﬂhx Ã à0ÆEŒn  p™EŒn  @.DŒn                          ÿßü˙  àGŒn                          sﬂrx Õ Ä        Ë/Ü˙         EŒn  H/Ü˙         P⁄?Œn                                  iﬂ|x Œ éC : \ W i n d o w s \ S y s t e m 3 2 \ u i a u t o m a t i o n c o r e . d l l         gﬂFx œ Ä        Ë/Ü˙         pEŒn  H/Ü˙         P⁄?Œn                                  ]ﬂ@x – åC : \ W I N D O W S \ S y s t e m 3 2 \ S t r u c t u r e d Q u e r y . d l l   l       [ﬂJx — ê0:Œn  0:Œn                        ¿,GŒn          	                              QﬂTx “ Ä        Ë/Ü˙         pEŒn  H/Ü˙         p>@Œn                                  Oﬂ^x ” Ä        Ë/Ü˙         pEŒn  H/Ü˙         ê€?Œn                                  EﬂXx ‘ à0´EŒn  ∞£EŒn  †DŒn   ısü˙                8ÿßü˙  ∏GŒn                          Cﬂ¢y ’ éC : \ W i n d o w s \ S y s t e m 3 2 \ u i a u t o m a t i o n c o r e . d l l         π‹¨y ÷ Ä        Ë/Ü˙         0EŒn  H/Ü˙         P⁄?Œn                                  ∑‹∂y ◊ Ä        ∏/Ü˙         0EŒn                                                          ≠‹∞y ÿ Ä        Ë/Ü˙         pEŒn  H/Ü˙         ê€?Œn                                  ´‹∫y Ÿ Ä        Ë/Ü˙         pEŒn  H/Ü˙         P⁄?Œn                                  °‹Ñy ⁄ Ä        Ë/Ü˙         0EŒn  H/Ü˙         ê:@Œn                                  ü‹éy € Ä¿2GŒn                   9GŒn  7GŒn          8GŒn                  4GŒn          ï‹ày ‹ êê¢EŒn  ê¢EŒn  4 8 	  ÔæçWjéWqU.   ÷~   r               u x 6 4                  ì‹íy › àê®EŒn  põEŒn  @DŒn   ısü˙                òÿßü˙  ¯µDŒn                         â‹úy ﬁ à–õEŒn  0´EŒn  Ä DŒn   ısü˙                Pÿßü˙  ∏$GŒn                          á‹Êy ﬂ àêüEŒn  ÆEŒn  ÄDŒn   ısü˙                8ÿßü˙  GŒn                          ˝‹‡y ‡ àPØEŒn  òEŒn   DŒn   ısü˙                8ÿßü˙  GŒn                          ˚‹Íy · ê                ñ“˙         êñ°“˙                  @ê°“˙  äï“˙  Pó“˙          Ò‹Ùy ‚ ê:Œn  :Œn                        †%GŒn  ∞ıãŒn  	                              Ô‹˛y „ Ä        Ë/Ü˙         pEŒn  H/Ü˙         p€?Œn                                  Â‹¯y ‰ àMEOW   †      ¿      FÄ      «M÷jK˛^          Ño  .x0“Éè• _É n  PàAŒn          „‹¬y Â Ä                ñ“˙                                  @ê°“˙  äï“˙  ê˚ñ“˙          Ÿ‹Ãy Ê ê∞:Œn  ∞:Œn                                ‡ƒé n  	                              ◊‹÷y Á Ä        Ë/Ü˙     n  0EŒn  H/Ü˙     n  p>@Œn                                  Õ‹–y Ë êC : \ W I N D O W S \ S y s t e m 3 2 \ S t r u c t u r e d Q u e r y . d l l   l       À‹⁄y È Ä        Ë/Ü˙         0EŒn  H/Ü˙         p€?Œn                                  ¡‹$y Í êC : \ W I N D O W S \ S y s t e m 3 2 \ S t r u c t u r e d Q u e r y . d l l           ?‹.y Î Ä        Ë/Ü˙         pEŒn  H/Ü˙         ê:@Œn                                  5‹(y Ï à        ¢EŒn  `DŒn   ısü˙                 ◊ßü˙                                  3‹2y Ì Ä        Ë/Ü˙         pEŒn  H/Ü˙         p€?Œn  @?÷Ø˙         †‘◊Ø˙          )‹<y Ó ê                ñ“˙         †P°“˙                  @ê°“˙  äï“˙  ¿˝ñ“˙          '‹y Ô éC : \ W i n d o w s \ S y s t e m 3 2 \ u i a u t o m a t i o n c o r e . d l l        ‹ y  Ä        Ë/Ü˙         pEŒn  H/Ü˙         P⁄?Œn  @?÷Ø˙         †‘◊Ø˙          ‹
+y Ò àêúEŒn          ‡)DŒn                          ÿßü˙  x≈DŒn                          ‹y Ú àÒî“˙  Úî“˙  Úî“˙  xÚî“˙   Ûî“˙  ∏Úî“˙  –fä n   _É n                         ‹y Û àP£EŒn  êüEŒn  ‡DŒn   ısü˙                8ÿßü˙  ËGŒn                         ‹y Ù ñ    { F ( * 4 3 ∞´EŒn  L      C : \ W I N D O W S \ S Y S T E M 3 2 \   0 3 }         ‹by ı Ä        Ë/Ü˙         EŒn  H/Ü˙         P⁄?Œn  @?÷Ø˙         †‘◊Ø˙          y‹ly ˆ à0¥EŒn  –±Å n  `CŒn                                                                 w‹vy ˜ éC : \ W I N D O W S \ S Y S T E M 3 2 \ U I A u t o m a t i o n C o r e . d l l         m‹py ¯ Ä    >   m i n p a d . v c x p r o j . F i l e L i s t A b s o l u t e   t I d           k‹zy ˘ Ä        Ë/Ü˙         0EŒn  H/Ü˙         p€?Œn                                  a‹Dy ˙ Ä        Ë/Ü˙     n  pEŒn  H/Ü˙     n  ê€?Œn  @?÷Ø˙     n  †‘◊Ø˙          _‹Ny ˚ à0úEŒn  êúEŒn  @DŒn                          ÿßü˙  ∏ŒDŒn                          U‹Hy ¸ Ä        Ë/Ü˙         pEŒn  H/Ü˙         p€?Œn                                  S‹Ry ˝ à∞£EŒn  PØEŒn   DŒn   ısü˙                8ÿßü˙  xŒDŒn                          I‹\y ˛ àÆEŒn  §EŒn  ‡DŒn   ısü˙                8ÿßü˙  8 GŒn                          G‹¶z ˇ àÒî“˙  Úî“˙  Úî“˙  xÚî“˙   Ûî“˙  ∏Úî“˙  pcä n   _É n                        Ω›†z  ÄP 1     èWLJ Debug < 	  ÔæçWjèWLJ.   D   (               †vÍ D e b u g      n u   ª›™z Ä`ı+”˙      ˙  0                     	                              ‘IŒn          ±›¥z ÄP 1     èWLJ Debug < 	  ÔæçWjèWLJ.   D   (               †vÍ D e b u g            Ø›æz Ä        `©{¡˙     ˙  @éŒn  Ä‰{¡˙     ˙  (~}¡˙                                  •›∏z ÄS y s t e m . S t r u c t u r e d Q u e r y T y p e . A l l B i t s S e t               £›Çz Ä‹œ˙  ‡€œ˙  ¿€œ˙                  ês<Œn                     ˇˇˇˇˇˇˇˇ            ô›åz Ä        `©{¡˙        ¿éŒn                                                          ó›ñz Ä        `©{¡˙     ˙  ¿éŒn  ©{¡˙     ˙  (~}¡˙                                  ç›êz Ä        `©{¡˙         ¿éŒn  Ä‰{¡˙         (~}¡˙                                  ã›öz 	ÄS y s t e m . S t r u c t u r e d Q u e r y T y p e . A l l B i t s S e t               Å›‰z 
+ê∞:Œn  ∞:Œn                        p7GŒn          	                              ˇ›Óz àPRŒn  P¨EŒn  @IŒn                                                                 ı›Ëz ÄC : \ s \ g o r m b \ m i n p a d \ x 6 4 \ D e b u g \ m i n p a d . t x t   M e n u   Û›Úz ÄP 1     èWLJ Debug < 	  ÔæçWjèWLJ.   D   (               †vÍ D e b u g            È›¸z ÄêÒî“˙  Óî“˙  »Ôî“˙  PÔî“˙  ¯Ôî“˙  êÔî“˙  œHŒn  ¿VÉ n    h îl  ›~ﬁb 8         Á›∆z ÄU—˙  ¿U—˙          ò◊GŒn  xÿGŒn                                                 ››¿z à®æãŒ˙   æãŒ˙                  ÍGŒn                                 êAëŒ˙         €› z ÄP 1     èWLJ Debug < 	  ÔæçWjèWLJ.   D   (               †vÍ D e b u g            —›‘z ÄêÒî“˙  Óî“˙  »Ôî“˙  PÔî“˙  ¯Ôî“˙  êÔî“˙  †∆HŒn  ¿VÉ n   ºEŒîl  ›~ﬁ            œ›ﬁz åC : \ W I N D O W S \ s y s t e m 3 2 \ w i n d o w s . s t o r a g e . d l l   l       ≈›ÿz ÄP 1     èWLJ Debug < 	  ÔæçWjèWLJ.   D   (               †vÍ D e b u g            √›"z êÿ§ãŒ˙   ¶ãŒ˙  p•ãŒ˙  •ãŒ˙                                 †8ëŒ˙                 9›,z äC : \ U s e r s \ g b r \ O n e D r i v e \ P i c t u r e s \ C a m e r a   R o l l     7›6z ÄC : \ U s e r s \ g b r \ P i c t u r e s \ S c r e e n s h o t s                       -›0z ÄC : \ s \ g o r m b \ m i n p a d \ x 6 4 \ D e b u g \ m i n p a d . t x t             +›:z ê∞:Œn  ∞:Œn                                        	                              !›z ÄC : \ U s e r s \ g b r \ P i c 

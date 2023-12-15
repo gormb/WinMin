@@ -1,8 +1,0 @@
-﻿  WinMin.cpp
-  Generating code
-  Finished generating code
-  2 of 3 functions (66.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-WinMin.obj : warning LNK4254: section '.text' (60000020) merged into '.rdata' (40000040) with different attributes
-  WinMin.vcxproj -> C:\s\WinMin\Release\WinMin.exe

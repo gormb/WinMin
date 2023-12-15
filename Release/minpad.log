@@ -1,0 +1,10 @@
+﻿  minpad.cpp
+C:\s\gormb\minpad\minpad.cpp(36,15): warning C4101: 'dwRead': unreferenced local variable
+C:\s\gormb\minpad\minpad.cpp(144,33): warning C4244: 'argument': conversion from 'LPARAM' to 'short', possible loss of data
+  Generating code
+  7 of 19 functions (36.8%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+minpad.obj : warning LNK4254: section '.data' (C0000040) merged into '.text' (60000020) with different attributes
+  minpad.vcxproj -> C:\s\gormb\minpad\Release\minpad.exe

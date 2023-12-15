@@ -1,0 +1,8 @@
+﻿  minpad.cpp
+C:\s\gormb\minpad\minpad.cpp(30,15): warning C4101: 'dwRead': unreferenced local variable
+C:\s\gormb\minpad\minpad.cpp(135,39): warning C4244: 'argument': conversion from 'LPARAM' to 'short', possible loss of data
+C:\s\gormb\minpad\minpad.cpp(135,33): warning C4244: 'argument': conversion from 'LPARAM' to 'short', possible loss of data
+C:\s\gormb\minpad\minpad.cpp(136,39): warning C4244: 'argument': conversion from 'WPARAM' to 'int', possible loss of data
+C:\s\gormb\minpad\minpad.cpp(143,40): warning C4244: 'argument': conversion from 'WPARAM' to 'int', possible loss of data
+C:\s\gormb\minpad\minpad.cpp(143,44): warning C4244: 'return': conversion from 'LRESULT' to 'int', possible loss of data
+  minpad.vcxproj -> C:\s\gormb\minpad\x64\Debug\minpad.exe
