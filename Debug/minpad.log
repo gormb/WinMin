@@ -1,0 +1,3 @@
+﻿  minpad.cpp
+C:\s\gormb\minpad\minpad.cpp(151,33): warning C4244: 'argument': conversion from 'LPARAM' to 'short', possible loss of data
+  minpad.vcxproj -> C:\s\gormb\minpad\Debug\minpad.exe

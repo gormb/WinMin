@@ -1,33 +1,38 @@
 #include "minpad.h"
 #include "resource.h"
 
-#define SHORTCUT_KEYS
-
 HWND hDlg, hEdit;
-#ifdef SHORTCUT_KEYS
+#ifdef MINPAD_SHORTCUT_KEYS
     WNDPROC pOrgEdit; int __stdcall EditProc(HWND hwnd, UINT msg, WPARAM wP, LPARAM lP);
 #endif
 CHAR szFn[MAX_PATH] = "";
-OPENFILENAMEA ofn = { 0 };
+#if defined(MINPAD_SHORTCUT_KEYS) || defined(MINPAD_MENU)
+    OPENFILENAMEA ofn = { 0 };
+#endif
 bool bIgnoreKeys = false;
+LPSTR buf = NULL;
 
 __inline int WmInit(HWND hDlgl) {
-    ofn.lStructSize = sizeof(ofn);
-    ofn.hwndOwner = hDlg = hDlgl;
-    ofn.lpstrFile = szFn;
-    ofn.nMaxFile = MAX_PATH;
-    ofn.lpstrFilter = "Text (*.txt)\0*.txt\0All (*.*)\0*.*\0";
-    ofn.nFilterIndex = 1;
+    hDlg = hDlgl;
     hEdit = GetDlgItem(hDlg, IDC_TEXTBOX);
-#ifdef SHORTCUT_KEYS
-    pOrgEdit = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc); // Subclass edit control to preview keyboard
-#endif
+#if defined(MINPAD_SHORTCUT_KEYS) || defined(MINPAD_MENU)
+        ofn.lStructSize = sizeof(ofn);
+        ofn.hwndOwner = hDlgl;
+        ofn.lpstrFile = szFn;
+        ofn.nMaxFile = MAX_PATH;
+        ofn.lpstrFilter = "Text (*.txt)\0*.txt\0All (*.*)\0*.*\0";
+        ofn.nFilterIndex = 1;
+    #endif
+    #ifdef MINPAD_SHORTCUT_KEYS
+        pOrgEdit = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc); // Subclass edit control to preview keyboard
+    #endif
     return CDefault();
 }
 
 __inline void SetFn() {
     SetWindowTextA(hDlg, szFn);
 }
+
 __inline int CNew() { *szFn = 0; SetFn(); return SetWindowTextA(hEdit, ""); }
 
 int CLoad() {
@@ -36,31 +41,39 @@ int CLoad() {
         return FALSE;
     else {
         DWORD dwFs = GetFileSize(hFile, NULL);
-        LPSTR buf = (LPSTR)GlobalAlloc(GPTR, dwFs + 1);
-        if (ReadFile(hFile, buf, dwFs, &dwFs, 0)) {
+        buf = (buf == NULL)
+            ? (LPSTR)GlobalAlloc(0, dwFs + 1)
+            : (LPSTR)GlobalReAlloc(buf, dwFs + 1, GMEM_MOVEABLE);
+        if (buf && ReadFile(hFile, buf, dwFs, &dwFs, 0)) {
             buf[dwFs] = 0;
             SetWindowTextA(hEdit, buf);
         }
-        GlobalFree(buf);
+        //GlobalFree(buf);
         CloseHandle(hFile);
     }
     SetFn();
     return TRUE;
 }
 
-int CSave() {
-    if (!*szFn)
-        return CSaveas();
+int CSave(byte bAskName = 0) {
+    #if defined(MINPAD_SHORTCUT_KEYS) || defined(MINPAD_MENU)
+        if (!*szFn || bAskName) {
+            ofn.lpstrTitle = "Sav";
+            ofn.Flags = OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
+            if (!GetSaveFileNameA(&ofn))
+                return FALSE;
+        }
+    #endif
     HANDLE hFile = CreateFileA(szFn, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
     if (hFile == INVALID_HANDLE_VALUE)
         return FALSE;
     else {
         DWORD dwWritten;
         DWORD dwLen = GetWindowTextLength(hEdit);
-        LPSTR buf = (LPSTR)GlobalAlloc(GPTR, dwLen + 1);
+        buf = (LPSTR)GlobalReAlloc(buf, dwLen + 1, 0);
         GetWindowTextA(hEdit, buf, dwLen + 1);
         WriteFile(hFile, buf, dwLen * sizeof(WCHAR), &dwWritten, NULL);
-        GlobalFree(buf);
+        //GlobalFree(buf);
         CloseHandle(hFile);
         SetFn();
     }
@@ -79,66 +92,56 @@ int CDefault() {
 }
 
 int COpen() {
-    ofn.lpstrTitle = "Open";
-    ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
-    if (GetOpenFileNameA(&ofn))
-        return CLoad();
+    #if defined(MINPAD_SHORTCUT_KEYS) || defined(MINPAD_MENU)
+        ofn.lpstrTitle = "Open";
+        ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+        if (GetOpenFileNameA(&ofn))
+            return CLoad();
+    #endif
     return FALSE;
 }
 
-int CSaveas() {
-    ofn.lpstrTitle = "Save";
-    ofn.Flags = OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
-    if (GetSaveFileNameA(&ofn))
-        return CSave();
-    return TRUE;
-}
-
-__inline int CCut() { SendMessage(hEdit, WM_CUT, 0, 0); return TRUE; }
-__inline int CCopy() { SendMessage(hEdit, WM_COPY, 0, 0); return TRUE; }
-__inline int CPaste() { SendMessage(hEdit, WM_PASTE, 0, 0); return TRUE; }
 __inline int CSelectAll() { SendMessage(hEdit, EM_SETSEL, 0, -1); return TRUE; }
+
+int CCutCopyPasteNewUndo(int i) { SendMessage(hEdit, i- 0x9946, 0, -1); return TRUE; }
 
 __inline int CEnd() { return EndDialog(hDlg, 0);  }
 
 __inline int WmCommand(WPARAM c, LPARAM lP) {
-    switch (c) {
-    case ID_FILE_DEFAULT: return CDefault();
-    case ID_FILE_NEW: return CNew();
-    case ID_FILE_OPEN: return COpen();
-    case ID_FILE_SAVE: return CSave();
-    case ID_FILE_SAVEAS: return CSaveas();
-    case IDCANCEL:
-    case ID_FILE_EXIT: return CEnd();
-    case ID_EDIT_SELECTALL: return CSelectAll();
-    case ID_EDIT_CUT: return CCut();
-    case ID_EDIT_COPY: return CCopy();
-    case ID_EDIT_PASTE: return CPaste();
+    if (c >= ID_FILE_NEW && c <= ID_EDIT_SELECTALL) {
+        if (c < ID_FILE_OPEN) return CNew();
+        else if (c < ID_FILE_SAVEAS) return COpen();
+        else if (c < ID_FILE_EXIT) return CSave(c & 1);
+        else if (c < ID_EDIT_CUT) return CEnd();
+        else if (c <= ID_EDIT_UNDO) return CCutCopyPasteNewUndo(c);
+        else if (c < ID_EDIT_SELECTALL) return CDefault();
+        else return CSelectAll();
     }
     return FALSE;
 }
 
 __inline int WmSize(__int16 w, __int16 h) { return MoveWindow(hEdit, 2, 2, w - 4, h - 4, TRUE);}
 
-#ifdef SHORTCUT_KEYS
+#ifdef MINPAD_SHORTCUT_KEYS
 int WmKeydown(int k) {
+    int iRet = FALSE;
     if (!bIgnoreKeys && GetKeyState(VK_CONTROL) & 0x800) {
         bIgnoreKeys = true;
         switch (k) { // DNOSW AXCV
-        case 'D': return CDefault();
-        case 'N': return CNew();
-        case 'O': return COpen();
-        case 'S': if (!*szFn) return CSaveas();
-                else return CSave();
-        case 'W': return CEnd();
-        case 'A': return CSelectAll();
-        case 'X': return CCut();
-        case 'C': return CCopy();
-        case 'V': return CPaste();
+        case 'D': iRet = CDefault(); break;
+        case 'N': iRet = CNew(); break;
+        case 'O': iRet = COpen(); break;
+        case 'S': iRet = CSave((*szFn) ? 0 : 1);  break;
+        case 'W': iRet = CEnd(); break;
+        case 'A': iRet = CSelectAll(); break;
+        case 'X': iRet = CCutCopyPasteNewUndo(WM_CUT); break;
+        case 'C': iRet = CCutCopyPasteNewUndo(WM_COPY); break;
+        case 'V': iRet = CCutCopyPasteNewUndo(WM_PASTE); break;
+        case 'Z': iRet = CCutCopyPasteNewUndo(WM_UNDO); break;
         }
         bIgnoreKeys = false;
     }
-    return FALSE;
+    return iRet;
 }
 #endif
 
@@ -146,15 +149,19 @@ __inline int _t_WinProc(HWND hDlgl, UINT uM, WPARAM wP, LPARAM lP) {
     switch (uM) {
     case WM_INITDIALOG: return WmInit(hDlgl);
     case WM_SIZE: return WmSize(lP, lP>>16);
-    #ifdef SHORTCUT_KEYS
+    #ifdef MINPAD_SHORTCUT_KEYS
         case WM_KEYDOWN: return WmKeydown(wP);
     #endif
-    case WM_COMMAND: return WmCommand(wP, lP); // pass-through; FALSE
+    #ifdef MINPAD_MENU
+        case WM_COMMAND: return WmCommand(wP, lP);
+    #else
+        case WM_COMMAND: if (wP == IDCANCEL) return CEnd();
+    #endif
     default: return FALSE;
     }
 }
 
-#ifdef SHORTCUT_KEYS
+#ifdef MINPAD_SHORTCUT_KEYS
     int __stdcall EditProc(HWND hwnd, UINT msg, WPARAM wP, LPARAM lP) { return msg&WM_KEYDOWN & !WmKeydown(wP) | CallWindowProc(pOrgEdit, hwnd, msg, wP, lP); }
 #endif
 
@@ -162,7 +169,7 @@ __inline int _t_WinProc(HWND hDlgl, UINT uM, WPARAM wP, LPARAM lP) {
 #pragma region Plumbing winmain/winproc debug=x64/release=x32 
 
 #ifndef _WIN64 // 32-bit
-    __inline __int32 CALLBACK aWinProc(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp) { return _t_WinProc(hDlg, msg, wp, lp); }
+    __inline __int32 CALLBACK aWinProc(HWND hDlgl, UINT msg, WPARAM wp, LPARAM lp) { return _t_WinProc(hDlgl, msg, wp, lp); }
     #ifdef NDEBUG // 32-bit release
         //#pragma comment(linker, "/MERGE:.data=.text") // hangs
         #pragma comment(linker,"/align:0x40")
