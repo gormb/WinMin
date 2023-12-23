@@ -1,5 +1,0 @@
-﻿  minpad.cpp
-C:\s\gormb\minpad\minpad.cpp(119,67): warning C4244: 'argument': conversion from 'WPARAM' to 'int', possible loss of data
-C:\s\gormb\minpad\minpad.cpp(178,39): warning C4244: 'argument': conversion from 'LPARAM' to 'short', possible loss of data
-C:\s\gormb\minpad\minpad.cpp(178,33): warning C4244: 'argument': conversion from 'LPARAM' to 'short', possible loss of data
-  minpad.vcxproj -> C:\s\gormb\minpad\x64\Debug\minpad.exe
